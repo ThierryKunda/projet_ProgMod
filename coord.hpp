@@ -25,6 +25,16 @@ class Coord{
 class EnsCoord {
 	// Attributs
 	vector<Coord> coords;
+	
+	public:
+	
+	// Constructeurs
+	
+	EnsCoord(vector<Coord> c) : coords{c} {};
+	
+	// Méthodes 
+	
+	int position(const Coord objet);
 };
 
 #endif

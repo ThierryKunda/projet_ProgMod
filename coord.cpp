@@ -4,10 +4,14 @@
 
 using namespace std;
 
+// Constructeurs de la classe Coord
+
 Coord::Coord(int lig, int col) : li{lig}, co{col} {
 	if (li > TAILLEGRILLE or li < 0 or co > TAILLEGRILLE or co < 0)
 		throw invalid_argument("Coordonnées invalides");
 }
+
+// Surcharges pour la classe Coord
 
 ostream &operator<<(ostream &out, Coord c) {
 	out << "(" << c.get_li() << "," << c.get_co() << ")";
@@ -37,3 +41,14 @@ TEST_CASE("opérateur différence pour la classe Coord") {
 	CHECK_FALSE ( Coord{0,5} != Coord{0,5} );
 	CHECK_FALSE ( Coord{18,4} != Coord{18,4} );
 }
+
+// Méthodes de la classe EnsCoord
+
+int EnsCoord::position(const Coord c) {
+	vector<Coord> tab = get_coords();
+	for (int i=0; i<tab.size(); i++) {
+		if (tab[i] == c) return i;
+	}
+	return -1;
+}
+	
