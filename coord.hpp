@@ -26,9 +26,11 @@ class EnsCoord {
 	// Attributs
 	vector<Coord> coords;
 	
+	public:
+
 	// Méthodes
 
-	vector<Coord> get_coord() const {return coords;}
+	vector<Coord> get_coords() const {return coords;};
 };
 
 #endif
