@@ -20,3 +20,10 @@ bool operator==(Coord c1, Coord c2) {
 bool operator!=(Coord c1, Coord c2) {
 	return not (c1==c2);
 }
+
+ostream &operator<<(ostream &out, EnsCoord &e) {
+	for (Coord c: e.get_coords()) {
+		out << c;
+	}
+	out << endl;
+}
