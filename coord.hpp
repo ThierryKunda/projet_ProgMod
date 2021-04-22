@@ -22,6 +22,10 @@ class Coord{
 	int get_co() const {return co;};
 };
 
+ostream &operator<<(ostream &out, Coord c);
+bool operator==(Coord c1, Coord c2);
+bool operator!=(Coord c1, Coord c2);
+
 class EnsCoord {
 	// Attributs
 	vector<Coord> coords;
@@ -35,10 +39,9 @@ class EnsCoord {
 	// Méthodes 
 	
 	int position(const Coord objet);
-
-	// Méthodes
-
 	vector<Coord> get_coords() const {return coords;};
 };
+
+ostream &operator<<(ostream& out, EnsCoord &e);
 
 #endif

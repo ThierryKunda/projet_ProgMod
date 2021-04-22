@@ -46,14 +46,16 @@ TEST_CASE("opérateur différence pour la classe Coord") {
 
 int EnsCoord::position(const Coord c) {
 	vector<Coord> tab = get_coords();
-	for (int i=0; i<tab.size(); i++) {
+	for (int i=0; i < int(tab.size()); i++) {
 		if (tab[i] == c) return i;
 	}
 	return -1;
 }
+// Surcharges pour la classe EnsCoord
 	
 ostream &operator<<(ostream& out, EnsCoord &e) {
 	for (Coord c: e.get_coords()) {
 		out << c << endl;
 	}
+	return out;
 }
