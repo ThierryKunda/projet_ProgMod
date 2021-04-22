@@ -30,18 +30,8 @@ bool operator!=(Coord c1, Coord c2) {
 	return not (c1==c2);
 }
 
-<<<<<<< HEAD
-ostream &operator<<(ostream &out, EnsCoord &e) {
+ostream &operator<<(ostream& out, EnsCoord &e) {
 	for (Coord c: e.get_coords()) {
-		out << c;
+		out << c << endl;
 	}
-	out << endl;
-=======
-TEST_CASE("opérateur différence pour la classe Coord") {
-	CHECK ( Coord{13,5} != Coord{0,5} );
-	CHECK ( Coord{1,8} != Coord{8,1} );
-	
-	CHECK_FALSE ( Coord{0,5} != Coord{0,5} );
-	CHECK_FALSE ( Coord{18,4} != Coord{18,4} );
->>>>>>> refs/remotes/origin/master
 }
