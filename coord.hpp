@@ -41,6 +41,8 @@ class EnsCoord {
 	int position(const Coord objet);
 	vector<Coord> get_coords() const {return coords;};
 	bool contient(const Coord c) {return position(c) != -1;};
+
+	void ajoute(Coord c);
 };
 
 ostream &operator<<(ostream& out, EnsCoord &e);
