@@ -2,6 +2,7 @@
 #define COORD_HPP
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 const int TAILLEGRILLE;
@@ -21,5 +22,9 @@ class Coord{
 	int get_co() const {return co;};
 };
 
+class EnsCoord {
+	// Attributs
+	vector<Coord> coords;
+};
 
 #endif
