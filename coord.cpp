@@ -34,7 +34,6 @@ bool operator!=(Coord c1, Coord c2) {
 	return not (c1==c2);
 }
 
-<<<<<<< HEAD
 TEST_CASE("opérateur différence pour la classe Coord") {
 	CHECK ( Coord{13,5} != Coord{0,5} );
 	CHECK ( Coord{1,8} != Coord{8,1} );
@@ -53,10 +52,8 @@ int EnsCoord::position(const Coord c) {
 	return -1;
 }
 	
-=======
 ostream &operator<<(ostream& out, EnsCoord &e) {
 	for (Coord c: e.get_coords()) {
 		out << c << endl;
 	}
 }
->>>>>>> 323d6fbec21d14e589d89dbfd3c7aa4d09e7c485

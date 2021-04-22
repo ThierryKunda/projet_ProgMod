@@ -27,7 +27,6 @@ class EnsCoord {
 	vector<Coord> coords;
 	
 	public:
-<<<<<<< HEAD
 	
 	// Constructeurs
 	
@@ -36,12 +35,10 @@ class EnsCoord {
 	// Méthodes 
 	
 	int position(const Coord objet);
-=======
 
 	// Méthodes
 
 	vector<Coord> get_coords() const {return coords;};
->>>>>>> 323d6fbec21d14e589d89dbfd3c7aa4d09e7c485
 };
 
 #endif
