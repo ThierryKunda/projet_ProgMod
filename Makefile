@@ -1,20 +1,17 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++11 -g
-EXEC_FILES = tests
+EXEC_FILES = test
 
-all: tests
+all: test
 
-%.o: %.cpp
-	$(CXX) -o $@ -c $< $(CXXFLAGS)
-
-coords.o: coord.cpp coord.hpp
+test.o: test.cpp doctest.h
 	$(CXX) $(CXXFLAGS) -c $<
-
-tests.o: doctest.h
-	$(CXX) $(CXXFLAGS) -c $<
-
-tests: tests.o coords.o
+	
+test: test.o coord.o
 	$(CXX) -o $@ $^ $(LDFLAGS)
+
+coord.o: coord.cpp coord.hpp
+	$(CXX) $(CXXFLAGS) -c $<
 
 clean: 
 	rm -f *.o $(EXEC_FILES)

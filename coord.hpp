@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-const int TAILLEGRILLE;
+const int TAILLEGRILLE = 20;
 
 class Coord{
 	// Attributs
