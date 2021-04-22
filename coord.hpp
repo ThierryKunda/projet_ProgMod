@@ -25,6 +25,10 @@ class Coord{
 class EnsCoord {
 	// Attributs
 	vector<Coord> coords;
+	
+	// Méthodes
+
+	vector<Coord> get_coord() const {return coords;}
 };
 
 #endif
