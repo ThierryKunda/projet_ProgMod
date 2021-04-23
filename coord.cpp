@@ -71,3 +71,31 @@ TEST_CASE("Méthode position") {
 	CHECK ( c.position(Coord{1,3}) == -1);
 }
 
+TEST_CASE("Méthode estVide") {
+    EnsCoord c = EnsCoord{ {Coord{1,2}} };
+    EnsCoord cvide = EnsCoord{{}};
+    
+    CHECK ( cvide.estVide() );
+    CHECK_FALSE ( c.estVide() );
+}
+
+TEST_CASE("Méthode taille") {
+    EnsCoord c1 = EnsCoord{ { Coord{1,2}, Coord{3,4}, Coord{5,6} } };
+    EnsCoord c2 = EnsCoord{{Coord{0,0}}};
+    EnsCoord c3 = EnsCoord{ { Coord{3,4}, Coord{5,6} } };
+    
+    CHECK ( c1.taille()==3 );
+    CHECK ( c2.taille()==1 );
+    CHECK_FALSE ( c3.taille()==3 );
+}
+
+TEST_CASE("Méthode ieme") {
+    EnsCoord c1 = EnsCoord{ { Coord{1,2}, Coord{3,4}, Coord{5,6} } };
+    EnsCoord c2 = EnsCoord{{Coord{0,0}}};
+    EnsCoord c3 = EnsCoord{ { Coord{3,4}, Coord{5,6} } };
+    
+    CHECK ( c1.ieme(2) == Coord{5,6} );
+    CHECK ( c2.ieme(0) == Coord{0,0} );
+    CHECK_FALSE ( c3.ieme(1) == Coord{1,1} );
+}
+
