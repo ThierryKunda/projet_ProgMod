@@ -75,3 +75,8 @@ TEST_CASE("Méthode position") {
 	CHECK ( c.position(Coord{1,3}) == -1);
 }
 
+TEST_CASE("Méthode ajoute") {
+	EnsCoord crds = EnsCoord{{Coord{1,2}, Coord{3,4}}};
+	crds.ajoute(Coord{5,6});
+	CHECK (crds.get_coords() == vector<Coord>{Coord{1,2}, Coord{3,4}, Coord{5,6}});
+}
