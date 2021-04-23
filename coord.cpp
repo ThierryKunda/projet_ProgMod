@@ -36,6 +36,10 @@ int EnsCoord::position(const Coord c) {
 	return -1;
 }
 
+void EnsCoord::ajoute(const Coord c) {
+	coords.push_back(c);
+}
+
 // Surcharges pour la classe EnsCoord
 	
 ostream &operator<<(ostream& out, EnsCoord &e) {
