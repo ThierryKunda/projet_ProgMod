@@ -26,6 +26,10 @@ bool operator!=(Coord c1, Coord c2) {
 	return !(c1==c2);
 }
 
+// Constructeurs de la classe EnsCoord
+
+EnsCoord::EnsCoord(){}
+
 // Méthodes de la classe EnsCoord
 
 /* Renvoie la position de l'argument dans l'ensemble des coordonnées
@@ -100,16 +104,19 @@ int max(const int a, const int b) {
 
 EnsCoord voisines(const Coord c) {
     EnsCoord result;
-    int imin = max(c.get_li() - 1, 0);
-    int imax = min(c.get_li() + 1, TAILLEGRILLE -1);
-    int jmin = max(c.get_co() - 1, 0);
-    int jmax = min(c.get_co() + 1, TAILLEGRILLE -1);
+    int lig = c.get_li();
+    int col = c.get_co();
+    int imin = max(lig - 1, 0);
+    int imax = min(lig + 1, TAILLEGRILLE -1);
+    int jmin = max(col - 1, 0);
+    int jmax = min(col + 1, TAILLEGRILLE -1);
     for (int i=imin; i<=imax; i++) {
         for (int j=jmin; j<=jmax; j++) {
             if (Coord{i,j} != c) result.ajoute(Coord{i,j});
         }
     }
     return result;
+}
 
 // TESTS
 
@@ -178,14 +185,12 @@ TEST_CASE("Fonction voisines") {
 			cs.push_back(Coord{i,j});
 		}
 	}
-	EnsCoord crds = {cs};
-
 	int milieu = TAILLEGRILLE/2-1;
 
 	// Coin supérieur gauche (=premier élément)
-	EnsCoord vois_haut_gauche = voisines(crds, Coord{0,0});
-	EnsCoord vois_milieu = voisines(crds, Coord{milieu,milieu}); // (9,9)
-	EnsCoord vois_milieu_droit = voisines(crds, Coord{TAILLEGRILLE-1, milieu}); // (19,9)
+	EnsCoord vois_haut_gauche = voisines(Coord{0,0});
+	EnsCoord vois_milieu = voisines(Coord{milieu,milieu}); // (9,9)
+	EnsCoord vois_milieu_droit = voisines(Coord{TAILLEGRILLE-1, milieu}); // (19,9)
 
 	// Tests
 	for (Coord co: vector<Coord>{{0,1}, {1,0}, {1,1}}) {

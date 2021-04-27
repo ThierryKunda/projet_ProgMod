@@ -47,6 +47,7 @@ class EnsCoord {
     int taille() const;
     Coord ieme(int n);
 	Coord choixHasard() const;
+    
 };
 
 EnsCoord voisines(const Coord c);
@@ -60,6 +61,6 @@ ostream &operator<<(ostream& out, EnsCoord &e);
 
 // Procédures et fonctions
 
-EnsCoord voisines(EnsCoord &ens, Coord c);
+EnsCoord voisines(Coord c);
 
 #endif
