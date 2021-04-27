@@ -49,6 +49,32 @@ ostream &operator<<(ostream& out, EnsCoord &e) {
 	return out;
 }
 
+// Fonctions
+
+int min(const int a, const int b) {
+    if (a<=b) return a;
+    return b;
+}
+
+int max(const int a, const int b) {
+    if (a>=b) return a;
+    return b;
+}
+
+EnsCoord voisines(const Coord c) {
+    EnsCoord result;
+    int imin = max(c.get_li() - 1, 0);
+    int imax = min(c.get_li() + 1, TAILLEGRILLE -1);
+    int jmin = max(c.get_co() - 1, 0);
+    int jmax = min(c.get_co() + 1, TAILLEGRILLE -1);
+    for (int i=imin; i<=imax; i++) {
+        for (int j=jmin; j<=jmax; j++) {
+            if (Coord{i,j} != c) result.ajoute(Coord{i,j});
+        }
+    }
+    return result;
+}
+
 // TESTS
 
 TEST_CASE("opérateur égalité pour la classe Coord") {

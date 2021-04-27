@@ -34,6 +34,7 @@ class EnsCoord {
 	
 	// Constructeurs
 	
+    EnsCoord();
 	EnsCoord(vector<Coord> c) : coords{c} {};
 	
 	// Méthodes 
@@ -46,6 +47,13 @@ class EnsCoord {
     int taille() const {return coords.size();};
     Coord ieme(int n) {return coords[n];};
 };
+
+EnsCoord voisines(const Coord c);
+
+int min(const int a, const int b);
+
+int max(const int a, const int b);
+    
 
 ostream &operator<<(ostream& out, EnsCoord &e);
 
