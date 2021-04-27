@@ -23,7 +23,7 @@ bool operator==(Coord c1, Coord c2) {
 }
 
 bool operator!=(Coord c1, Coord c2) {
-	return not (c1==c2);
+	return !(c1==c2);
 }
 
 // Méthodes de la classe EnsCoord
