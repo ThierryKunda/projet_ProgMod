@@ -40,12 +40,13 @@ class EnsCoord {
 	// Méthodes 
 	
 	int position(const Coord objet);
-	vector<Coord> get_coords() const {return coords;};
-	bool contient(const Coord c) {return position(c) != -1;};
+	vector<Coord> get_coords() const;
+	bool contient(const Coord c);
     void ajoute(Coord c);
-    bool estVide() const {return coords.size()==0;};
-    int taille() const {return coords.size();};
-    Coord ieme(int n) {return coords[n];};
+    bool estVide() const;
+    int taille() const;
+    Coord ieme(int n);
+	Coord choixHasard() const;
 };
 
 EnsCoord voisines(const Coord c);
@@ -56,5 +57,9 @@ int max(const int a, const int b);
     
 
 ostream &operator<<(ostream& out, EnsCoord &e);
+
+// Procédures et fonctions
+
+EnsCoord voisines(EnsCoord &ens, Coord c);
 
 #endif
