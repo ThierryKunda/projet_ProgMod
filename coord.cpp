@@ -82,7 +82,24 @@ ostream &operator<<(ostream& out, EnsCoord &e) {
 
 // Procédures et fonctions
 
-// voisines() à compléter
+EnsCoord voisines(EnsCoord &ens, Coord c) {
+	vector<Coord> ev;
+	int lig, col, i_min, i_max, j_min, j_max;
+	lig = c.get_li();
+	col = c.get_co();
+	i_min = max(lig - 1, 0);
+	i_max = min(lig + 1, TAILLEGRILLE - 1);
+	j_min = max(col - 1, 0);
+	j_max = min(col + 1, TAILLEGRILLE - 1);
+
+	for (int i = i_min; i <= i_max; i++) {
+		for (int j = j_min; j <= j_max; j++) {
+			if (!(i == lig && j == col))
+				ev.push_back({i,j});
+		}
+	}
+	return EnsCoord{ev};
+}
 
 // TESTS
 
@@ -114,4 +131,39 @@ TEST_CASE("Méthode ajoute") {
 	EnsCoord crds = EnsCoord{{Coord{1,2}, Coord{3,4}}};
 	crds.ajoute(Coord{5,6});
 	CHECK (crds.get_coords() == vector<Coord>{Coord{1,2}, Coord{3,4}, Coord{5,6}});
+}
+
+TEST_CASE("Fonction voisines") {
+	vector<Coord> cs;
+	for (int i = 0; i < TAILLEGRILLE; i++) {
+		for (int j = 0; j < TAILLEGRILLE; j++) {
+			cs.push_back(Coord{i,j});
+		}
+	}
+	EnsCoord crds = {cs};
+
+	int milieu = TAILLEGRILLE/2-1;
+
+	cout << "Milieu : " << milieu << endl;
+
+	// Coin supérieur gauche (=premier élément)
+	EnsCoord vois_haut_gauche = voisines(crds, Coord{0,0});
+	EnsCoord vois_milieu = voisines(crds, Coord{milieu,milieu}); // (9,9)
+	EnsCoord vois_milieu_droit = voisines(crds, Coord{TAILLEGRILLE-1, milieu}); // (19,9)
+
+	cout << vois_milieu_droit << endl;
+
+	// Tests
+	for (Coord co: vector<Coord>{{0,1}, {1,0}, {1,1}}) {
+		CHECK(vois_haut_gauche.contient(co));
+	}
+	
+	for (Coord co: vector<Coord>{{18, 8}, {18, 9}, {18, 10}, {19, 8}, {19, 10}}) {
+		CHECK(vois_milieu_droit.contient(co));
+	}
+	
+	for (Coord co: vector<Coord>{{8,9}, {10,9}, {9,10}, {9,8}, {8,8}, {10,10}, {10, 8}, {8,10}}) {
+		CHECK(vois_milieu.contient(co));
+	}
+
 }
