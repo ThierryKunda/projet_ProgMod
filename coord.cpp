@@ -86,8 +86,7 @@ ostream &operator<<(ostream& out, EnsCoord &e) {
 	return out;
 }
 
-<<<<<<< HEAD
-// Fonctions
+// Procédures et Fonctions
 
 int min(const int a, const int b) {
     if (a<=b) return a;
@@ -111,28 +110,6 @@ EnsCoord voisines(const Coord c) {
         }
     }
     return result;
-=======
-// Procédures et fonctions
-
-EnsCoord voisines(EnsCoord &ens, Coord c) {
-	vector<Coord> ev;
-	int lig, col, i_min, i_max, j_min, j_max;
-	lig = c.get_li();
-	col = c.get_co();
-	i_min = max(lig - 1, 0);
-	i_max = min(lig + 1, TAILLEGRILLE - 1);
-	j_min = max(col - 1, 0);
-	j_max = min(col + 1, TAILLEGRILLE - 1);
-
-	for (int i = i_min; i <= i_max; i++) {
-		for (int j = j_min; j <= j_max; j++) {
-			if (!(i == lig && j == col))
-				ev.push_back({i,j});
-		}
-	}
-	return EnsCoord{ev};
->>>>>>> 83e9d5901fe80c9d82bf726e1857f0a13afcf5ce
-}
 
 // TESTS
 
@@ -160,7 +137,6 @@ TEST_CASE("Méthode position") {
 	CHECK ( c.position(Coord{1,3}) == -1);
 }
 
-<<<<<<< HEAD
 TEST_CASE("Méthode estVide") {
     EnsCoord c = EnsCoord{ {Coord{1,2}} };
     EnsCoord cvide = EnsCoord{{}};
@@ -189,7 +165,6 @@ TEST_CASE("Méthode ieme") {
     CHECK_FALSE ( c3.ieme(1) == Coord{1,1} );
 }
 
-=======
 TEST_CASE("Méthode ajoute") {
 	EnsCoord crds = EnsCoord{{Coord{1,2}, Coord{3,4}}};
 	crds.ajoute(Coord{5,6});
@@ -233,4 +208,4 @@ TEST_CASE("Méthode choixHasard") {
 	CHECK(ens.contient(choix_coord));
 	cout << "Coordonnées aléatoires : " << choix_coord << ens.choixHasard() << ens.choixHasard() << endl;
 }
->>>>>>> 83e9d5901fe80c9d82bf726e1857f0a13afcf5ce
+
