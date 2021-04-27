@@ -71,6 +71,12 @@ void EnsCoord::ajoute(const Coord c) {
 	coords.push_back(c);
 }
 
+Coord EnsCoord::choixHasard() const {
+	int ind_aleat = rand() % taille();
+	vector<Coord> crds = get_coords();
+	return crds[ind_aleat];
+}
+
 // Surcharges pour la classe EnsCoord
 	
 ostream &operator<<(ostream& out, EnsCoord &e) {
@@ -144,14 +150,10 @@ TEST_CASE("Fonction voisines") {
 
 	int milieu = TAILLEGRILLE/2-1;
 
-	cout << "Milieu : " << milieu << endl;
-
 	// Coin supérieur gauche (=premier élément)
 	EnsCoord vois_haut_gauche = voisines(crds, Coord{0,0});
 	EnsCoord vois_milieu = voisines(crds, Coord{milieu,milieu}); // (9,9)
 	EnsCoord vois_milieu_droit = voisines(crds, Coord{TAILLEGRILLE-1, milieu}); // (19,9)
-
-	cout << vois_milieu_droit << endl;
 
 	// Tests
 	for (Coord co: vector<Coord>{{0,1}, {1,0}, {1,1}}) {
@@ -166,4 +168,11 @@ TEST_CASE("Fonction voisines") {
 		CHECK(vois_milieu.contient(co));
 	}
 
+}
+
+TEST_CASE("Méthode choixHasard") {
+	EnsCoord ens = {vector<Coord>{{1,2}, {3,4}, {5,6}}};
+	Coord choix_coord = ens.choixHasard();
+	CHECK(ens.contient(choix_coord));
+	cout << "Coordonnées aléatoires : " << choix_coord << ens.choixHasard() << ens.choixHasard() << endl;
 }

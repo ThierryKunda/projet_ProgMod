@@ -45,6 +45,7 @@ class EnsCoord {
     bool estVide() const;
     int taille() const;
     Coord ieme(int n);
+	Coord choixHasard() const;
 };
 
 ostream &operator<<(ostream& out, EnsCoord &e);
