@@ -36,6 +36,16 @@ int EnsCoord::position(const Coord c) {
 	return -1;
 }
 
+vector<Coord> EnsCoord::get_coords() const {return coords;};
+
+bool EnsCoord::contient(const Coord c) {return position(c) != -1;};
+
+bool EnsCoord::estVide() const {return coords.size()==0;};
+
+int EnsCoord::taille() const {return coords.size();};
+
+Coord EnsCoord::ieme(int n) {return coords[n];};
+
 void EnsCoord::ajoute(const Coord c) {
 	coords.push_back(c);
 }
