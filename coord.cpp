@@ -28,6 +28,11 @@ bool operator!=(Coord c1, Coord c2) {
 
 // Méthodes de la classe EnsCoord
 
+/* Renvoie la position de l'argument dans l'ensemble des coordonnées
+@param Coord à chercher dans l'ensemble
+@return indice de position
+
+*/
 int EnsCoord::position(const Coord c) {
 	vector<Coord> tab = get_coords();
 	for (int i=0; i < int(tab.size()); i++) {
@@ -36,16 +41,32 @@ int EnsCoord::position(const Coord c) {
 	return -1;
 }
 
+/* Getter 
+@return vector<Coord>
+*/
 vector<Coord> EnsCoord::get_coords() const {return coords;};
 
+/* Vérifie que l'ensemble contient l'argument 
+@param Coord à chercher dans l'ensemble
+@return bool
+*/
 bool EnsCoord::contient(const Coord c) {return position(c) != -1;};
 
+/* Vérifie que l'ensemble est vide
+@return bool */
 bool EnsCoord::estVide() const {return coords.size()==0;};
 
+/* Renvoie la taille de l'ensemble
+@return int */
 int EnsCoord::taille() const {return coords.size();};
 
+/* Renvoie le n-ième élément de l'ensemble
+@param n indice
+@return Coord */
 Coord EnsCoord::ieme(int n) {return coords[n];};
 
+/* Ajoute un élément à l'ensemble
+@param Coord à ajouter */
 void EnsCoord::ajoute(const Coord c) {
 	coords.push_back(c);
 }
