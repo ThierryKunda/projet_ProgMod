@@ -80,6 +80,10 @@ ostream &operator<<(ostream& out, EnsCoord &e) {
 	return out;
 }
 
+// Procédures et fonctions
+
+// voisines() à compléter
+
 // TESTS
 
 TEST_CASE("opérateur égalité pour la classe Coord") {

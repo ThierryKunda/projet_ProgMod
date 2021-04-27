@@ -49,4 +49,8 @@ class EnsCoord {
 
 ostream &operator<<(ostream& out, EnsCoord &e);
 
+// Procédures et fonctions
+
+EnsCoord voisines(EnsCoord &ens, Coord c);
+
 #endif
