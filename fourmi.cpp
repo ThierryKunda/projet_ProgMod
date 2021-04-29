@@ -3,3 +3,8 @@
 #include "fourmi.hpp"
 #include "doctest.h"
 using namespace std;
+
+// Constructeur
+Fourmi::Fourmi(Coord crds, int indice) : coords{crds}, num{indice}{
+    if (num < 0) {throw("Indice négatif : non valide.");}
+}
