@@ -18,12 +18,14 @@ class Fourmi {
 
     // Méthodes
     Coord get_coords() const {return coords;};
+    void deplace(Coord c) {coords = c;};
+    void deplace(int lig, int col) {coords = {lig, col};};
     int get_num() const {return num;};
-    void set_coords(Coord crds) {coords = crds;};
-    void set_coords(int lig, int col) {coords = {lig, col};};
-    bool porteSucre() const;
-    void prendSucre();
-    void deplace();
+    bool porteSucre() const {return sucre;};
+    void prendSucre() {sucre = true;};
+    void poseSucre() {sucre = false;};
+    
+
 };
 
 #endif // FOURMI_HPP
