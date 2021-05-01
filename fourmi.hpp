@@ -24,7 +24,6 @@ class Fourmi {
     bool porteSucre() const {return sucre;};
     void prendSucre() {sucre = true;};
     void poseSucre() {sucre = false;};
-    
 
 };
 

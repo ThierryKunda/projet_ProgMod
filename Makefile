@@ -20,4 +20,4 @@ test: test.o coord.o fourmi.o place.o
     $(CXX) -o $@ $^ $(LDFLAGS)
 
 clean:
-    rm -f *.o $(EXEC_FILES)
+rm -f *.o $(EXEC_FILES)

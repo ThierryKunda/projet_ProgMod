@@ -20,36 +20,27 @@ class Place{
     
     // Constructeurs
     
-    Place(Coords crds);
+    Place(Coords crds) : coord{crds}, sucre{false}, pheroNid{0}, pheroSucre{0}, numeroFourmi{-1};
     
     // Methodes
     
-    Coords get_coords() const {return coord;};
-    int get_pheroSucre() const {return pheroSucre;};
-    double get_pheroNid() const {return pheroNid;};
-    int get_numeroFourmi() const {return numeroFourmi;};
-    
-    void set_sucre(bool b) {sucre = b;};
-    void set_pheroNid(double x) {pheroNid = x;};
-    void set_pheroSucre(int i) {pheroSucre = i;};
-    void set_numeroFourmi(int i) {numeroFourmi = i;}
+    int get_coord() {return coord;};
     
     bool contientSucre() const {return sucre;};
-    bool contientNid() const {return get_pheroNid == 1;};
-    bool estSurUnePiste() const {return get_pheroSucre > 0};
-    void poseSucre() {set_sucre(true);};
-    void enleveSucre() {set_sucre(false);};
-    void poseNid() {set_pheroNid(1);};
-    void poseFourmi(Fourmi &f) {set_numeroFourmi(f.get_num());};
-    void enleveFourmi(Fourmi &f) {set_numeroFourmi(-1);};
-    void posePheroNid(double intensite) {set_pheroNid(intensite);};
-    void posePheroSucre() {set_pheroSucre(255);};
-    void diminuePheroSucre() {set_pheroSucre(get_pheroSucre()-5);};
+    bool contientNid() const {return pheroNid == 1;};
+    bool estSurUnePiste() const {return pheroSucre > 0};
+    void poseSucre() {sucre = true;};
+    void enleveSucre() {sucre = false;};
+    void poseNid() {pheroNid = 1;};
+    void poseFourmi(Fourmi &f) {numeroFourmi = f.get_num();};
+    void enleveFourmi(Fourmi &f) {numeroFourmi = -1;};
+    void posePheroNid(double intensite) {pheroNid = intensite;};
+    void posePheroSucre() {pheroSucre = 255;};
+    void diminuePheroSucre() {pheroSucre -=5;};
 };
 
 // Fonctions 
 
 void deplaceFourmi(Fourmi &f, Place &p1, Place &p2);
-
 
 #endif
