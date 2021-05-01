@@ -25,6 +25,8 @@ class Place{
     // Methodes
     
     int get_coord() {return coord;};
+    int get_numeroFourmi() {return numeroFourmi;};
+    double get_pheroNid() {return pheroNid;};
     
     bool contientSucre() const {return sucre;};
     bool contientNid() const {return pheroNid == 1;};
@@ -42,5 +44,7 @@ class Place{
 // Fonctions 
 
 void deplaceFourmi(Fourmi &f, Place &p1, Place &p2);
+bool estVide(const Place p);
+bool estPlusProcheNid(const Place p1, const Place p2);
 
 #endif
