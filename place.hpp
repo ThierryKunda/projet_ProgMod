@@ -11,7 +11,7 @@ using namespace std;
 class Place{
     // Attriubuts
     
-    Coords coord;
+    Coord coord;
     bool sucre;
     double pheroNid;
     int pheroSucre, numeroFourmi;
@@ -20,11 +20,11 @@ class Place{
     
     // Constructeurs
     
-    Place(Coords crds) : coord{crds}, sucre{false}, pheroNid{0}, pheroSucre{0}, numeroFourmi{-1};
+    Place(Coord crds) : coord{crds}, sucre{false}, pheroNid{0}, pheroSucre{0}, numeroFourmi{-1} {};
     
     // Methodes
     
-    int get_coord() {return coord;};
+    Coord get_coord() {return coord;};
     int get_numeroFourmi() {return numeroFourmi;};
     double get_pheroNid() {return pheroNid;};
     
