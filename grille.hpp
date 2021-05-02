@@ -16,7 +16,7 @@ class Grille {
 	Grille();
 
 	// Méthodes
-	Place chargePlace(Coord crds);
+	Place chargePlace(Coord crds) const;
 	void rangePlace(Place p);
 	void linearisePheroNid();
 	void diminuePheroSucre();
