@@ -5,19 +5,19 @@ EXEC_FILES = test
 all: test
 
 test.o: test.cpp doctest.h
-    $(CXX) $(CXXFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $<
     
 coord.o: coord.cpp coord.hpp
-    $(CXX) $(CXXFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 fourmi.o: fourmi.cpp fourmi.hpp coord.hpp
-    $(CXX) $(CXXFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 place.o: place.cpp place.hpp fourmi.hpp coord.hpp
-    $(CXX) $(CXXFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $<
 
 test: test.o coord.o fourmi.o place.o
-    $(CXX) -o $@ $^ $(LDFLAGS)
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 clean:
-    rm -f *.o $(EXEC_FILES)
+	rm -f *.o $(EXEC_FILES)
