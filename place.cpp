@@ -10,7 +10,7 @@ using namespace std;
 // Fonctions
 
 void deplaceFourmi(Fourmi &f, Place &p1, Place &p2) {
-    p1.enleveFourmi();
+    p1.enleveFourmi(f);
     f.deplace(p2.get_coord());
     p2.poseFourmi(f);
 }
