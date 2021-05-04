@@ -23,4 +23,10 @@ class Grille {
 
 };
 
+void placeNid(Grille &grille, EnsCoord ens);
+void placeSucre(Grille &grille, EnsCoord ens);
+void placeFourmis(Grille &grille, vector<Fourmi> fourmis);
+void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &ens_nid);
+void lineariserPheroNid(Grille &grille);
+
 #endif // GRILLE_HPP
