@@ -16,6 +16,8 @@ Place Grille::chargePlace(Coord crds) const {
 		if (crds == p.get_coord())
 			return p;
 	}
+	// On renvoie la place de coordonnées (0,0) par défaut
+	return Place(Coord{0,0});
 }
 
 /* Setter (Place) */
