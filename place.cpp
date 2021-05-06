@@ -54,4 +54,5 @@ TEST_CASE("Méthode posePheroNid/Sucre") {
 	CHECK(p.get_pheroNid() == 0.2);
 	CHECK(p.estSurUnePiste());
 	p.diminuePheroSucre();
+	CHECK(p.get_pheroSucre() == 250);
 }
