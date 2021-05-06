@@ -38,7 +38,7 @@ class Place{
     void enleveFourmi() {numeroFourmi = -1;};
     void posePheroNid(double intensite) {pheroNid = intensite;};
     void posePheroSucre() {pheroSucre = 255;};
-    void diminuePheroSucre() {pheroSucre -=5;};
+    void diminuePheroSucre() {if(pheroSucre > 0) pheroSucre-=5;};
 };
 
 // Fonctions 

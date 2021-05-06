@@ -27,3 +27,34 @@ void Grille::rangePlace(Place p) {
 			pl = p;
 	}
 }
+
+/* Procédure placeNid
+ * @param grille : grille a modifier, 
+ * ens : ensemble de coordonnees concernees
+ */
+void placeNid(Grille &grille, const EnsCoord ens) {
+	// Place un element de nid sur toutes les cases de la grille contenues dans l'ensemble ens
+	for (int i=0, i<ens.taille(); i++) {
+		Place p = grille.chargePlace(ens.ieme(i))
+		p.poseNid();
+		grille.rangePlace(p);
+	}
+}
+
+/* Procédure placeSucre
+ * @param grille : grille a modifier, 
+ * ens : ensemble de coordonnees concernees
+ */
+void placeSucre(Grille &grille, const EnsCoord ens) {
+	// Place du sucre sur toutes les cases de la grille contenues dans l'ensemble ens
+	for (int i=0, i<ens.taille(); i++) {
+		Place p = grille.chargePlace(ens.ieme(i))
+		p.poseSucre();
+		grille.rangePlace(p);
+	}
+}
+
+void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
+	for (Fourmi f: fourmis) {
+		
+}
