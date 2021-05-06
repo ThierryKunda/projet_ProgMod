@@ -24,9 +24,9 @@ class Place{
     
     // Methodes
     
-    Coord get_coord() {return coord;};
-    int get_numeroFourmi() {return numeroFourmi;};
-    double get_pheroNid() {return pheroNid;};
+    Coord get_coord() const {return coord;};
+    int get_numeroFourmi() const {return numeroFourmi;};
+    double get_pheroNid() const {return pheroNid;};
     
     bool contientSucre() const {return sucre;};
     bool contientNid() const {return pheroNid == 1;};
@@ -35,7 +35,7 @@ class Place{
     void enleveSucre() {sucre = false;};
     void poseNid() {pheroNid = 1;};
     void poseFourmi(Fourmi &f) {numeroFourmi = f.get_num();};
-    void enleveFourmi(Fourmi &f) {numeroFourmi = -1;};
+    void enleveFourmi() {numeroFourmi = -1;};
     void posePheroNid(double intensite) {pheroNid = intensite;};
     void posePheroSucre() {pheroSucre = 255;};
     void diminuePheroSucre() {pheroSucre -=5;};
