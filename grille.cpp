@@ -22,7 +22,7 @@ Place Grille::chargePlace(Coord crds) const {
 
 /* Setter (Place) */
 void Grille::rangePlace(Place p) {
-	for (Place pl: places) {
+	for (Place pl: get_places()) {
 		if (p.get_coord() == pl.get_coord())
 			pl = p;
 	}
@@ -32,10 +32,11 @@ void Grille::rangePlace(Place p) {
  * @param grille : grille a modifier, 
  * ens : ensemble de coordonnees concernees
  */
-void placeNid(Grille &grille, const EnsCoord ens) {
+void placeNid(Grille &grille, EnsCoord ens) {
 	// Place un element de nid sur toutes les cases de la grille contenues dans l'ensemble ens
+	Place p;
 	for (int i=0, i<ens.taille(); i++) {
-		Place p = grille.chargePlace(ens.ieme(i))
+		p = grille.chargePlace(ens.ieme(i))
 		p.poseNid();
 		grille.rangePlace(p);
 	}
@@ -45,16 +46,33 @@ void placeNid(Grille &grille, const EnsCoord ens) {
  * @param grille : grille a modifier, 
  * ens : ensemble de coordonnees concernees
  */
-void placeSucre(Grille &grille, const EnsCoord ens) {
+void placeSucre(Grille &grille, EnsCoord ens) {
 	// Place du sucre sur toutes les cases de la grille contenues dans l'ensemble ens
+	Place p;
 	for (int i=0, i<ens.taille(); i++) {
-		Place p = grille.chargePlace(ens.ieme(i))
+		p = grille.chargePlace(ens.ieme(i))
 		p.poseSucre();
 		grille.rangePlace(p);
 	}
 }
 
+EnsCoord Grille::placesVides() {
+	EnsCoord ens;
+	Coord c;
+	for (Place p: get_places()) {
+		if (p.estVide()) {
+			c = p.get_coord():
+			ens.ajoute(c);
+		}
+	}
+	return ens;
+}
+
 void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
-	for (Fourmi f: fourmis) {
-		
+	EnsCoord ens = grille.placesVides();
+	for (int i=0; i<fourmis.size(); i++) {
+		p = grille.chargePlace(ens.ieme(i))
+		p.poseFourmi(fourmis[i]);
+		grille.rangePlace(p);	
+	}
 }
