@@ -35,7 +35,7 @@ class Place{
     void poseSucre() {sucre = true;};
     void enleveSucre() {sucre = false;};
     void poseNid() {pheroNid = 1;};
-    void poseFourmi(Fourmi &f) {numeroFourmi = f.get_num();};
+    void poseFourmi(Fourmi &f) {numeroFourmi = f.get_num(); f.deplace(get_coord());};
     void enleveFourmi() {numeroFourmi = -1;};
     void posePheroNid(double intensite) {pheroNid = intensite;};
     void posePheroSucre() {pheroSucre = 255;};
