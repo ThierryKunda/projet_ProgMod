@@ -30,6 +30,7 @@ class Place{
     
     bool contientSucre() const {return sucre;};
     bool contientNid() const {return pheroNid == 1;};
+	bool contientFourmi() const {return numeroFourmi != -1;};
     bool estSurUnePiste() const {return pheroSucre > 0;};
     void poseSucre() {sucre = true;};
     void enleveSucre() {sucre = false;};
