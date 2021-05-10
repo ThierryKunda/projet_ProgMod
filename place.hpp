@@ -24,9 +24,9 @@ class Place{
     
     // Methodes
     
-    Coord get_coord() {return coord;};
-    int get_numeroFourmi() {return numeroFourmi;};
-    double get_pheroNid() {return pheroNid;};
+    Coord get_coord() const {return coord;};
+    int get_numeroFourmi() const {return numeroFourmi;};
+    double get_pheroNid() const {return pheroNid;};
     
     bool contientSucre() const {return sucre;};
     bool contientNid() const {return pheroNid == 1;};
