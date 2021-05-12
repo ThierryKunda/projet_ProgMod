@@ -99,12 +99,11 @@ void placeNid(Grille &grille, EnsCoord ens) {
  */
 void placeSucre(Grille &grille, EnsCoord ens) {
 	// Place du sucre sur toutes les cases de la grille contenues dans l'ensemble ens
-	Place p;
-	for (int i=0, i<ens.taille(); i++) {
-		p = grille.chargePlace(ens.ieme(i))
+	vector<Place> places  = grille.chargEnsPlace(ens);
+	for (Place p: places) {
 		p.poseSucre();
-		grille.rangePlace(p);
 	}
+	grille.rangeEnsPlace(places);
 }
 
 EnsCoord Grille::placesVides() {
