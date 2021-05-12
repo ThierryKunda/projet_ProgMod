@@ -121,8 +121,9 @@ void placeSucre(Grille &grille, EnsCoord ens) {
 
 void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
 	EnsCoord ens = grille.placesVides();
+	Place p = {Coord{0,0}};
 	for (int i=0; i<fourmis.size(); i++) {
-		p = grille.chargePlace(ens.ieme(i))
+		p = grille.chargePlace(ens.ieme(i));
 		p.poseFourmi(fourmis[i]);
 		grille.rangePlace(p);	
 	}
