@@ -24,10 +24,10 @@ class Grille {
 	void rangePlace(Place p);
 	vector<Place> chargEnsPlace(EnsCoord crds);
 	void rangeEnsPlace(vector<Place> places);
+	EnsCoord CoordsPlacesVoisines(Place place);
 	void linearisePheroNid();
 	void diminuePheroSucre();
 	EnsCoord placesVides();
-
 };
 
 void placeNid(Grille &grille, EnsCoord ens);

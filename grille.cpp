@@ -42,6 +42,11 @@ void Grille::rangeEnsPlace(vector<Place> places) {
 	}
 }
 
+/* Renvoie l'ensemble des coords de la place en paramètre */
+EnsCoord Grille::CoordsPlacesVoisines(Place place) {
+	return voisines(place.get_coord());
+}
+
 /* Procédure placeNid
  * @param grille : grille a modifier, 
  * ens : ensemble de coordonnees concernees
