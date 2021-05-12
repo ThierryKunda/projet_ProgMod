@@ -20,6 +20,18 @@ Place Grille::chargePlace(Coord crds) const {
 	return Place(Coord{0,0});
 }
 
+EnsCoord Grille::placesVides() {
+	EnsCoord ens;
+	Coord c = {0,0};
+	for (Place p: get_places()) {
+		if (estVide(p)) {
+			c = p.get_coord();
+			ens.ajoute(c);
+		}
+	}
+	return ens;
+}
+
 vector<Place> Grille::chargEnsPlace(EnsCoord ens_c) {
 	vector<Place> ens_place;
 	for (Coord c: ens_c.get_coords()) {
@@ -106,17 +118,6 @@ void placeSucre(Grille &grille, EnsCoord ens) {
 	grille.rangeEnsPlace(places);
 }
 
-EnsCoord Grille::placesVides() {
-	EnsCoord ens;
-	Coord c;
-	for (Place p: get_places()) {
-		if (p.estVide()) {
-			c = p.get_coord():
-			ens.ajoute(c);
-		}
-	}
-	return ens;
-}
 
 void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
 	EnsCoord ens = grille.placesVides();
