@@ -50,6 +50,36 @@ EnsCoord Grille::CoordsPlacesVoisines(Place place) {
 	return voisines(place.get_coord());
 }
 
+/* Calcule l'intensité maximale de phéromone de nid entre plusieurs places
+ * @param vector<Place>
+ * @return double
+ */
+double maxIntensitePheroNid(vector<Place> places) {
+	double max_intensite;
+	for (int i = 1; i < places.size(); i++) {
+		max_intensite = max(places[i].get_pheroNid(), places[i-1].get_pheroNid());
+	}
+	return max_intensite;
+}
+
+void Grille::linearisePheroNid() {
+	// On copie les places de la grille
+	vector<Place> places = get_places();
+	double m = 1;
+	// On initialise l'intensité à pour toutes les places
+	for (Place pl: places) {
+		pl.posePheroNid(1);
+	}
+	// On linéarise
+	for (Place pl: places) {
+		vector<Place> places_voisines = chargEnsPlace(CoordsPlacesVoisines(pl));
+		m = maxIntensitePheroNid(places_voisines);
+		if (pl.get_pheroNid() < 1) pl.posePheroNid(max(m - 1/TAILLEGRILLE, 0));
+	}
+	// On enregistre ces modifications en rangeant les places
+	rangeEnsPlace(places);
+}
+
 /* Procédure placeNid
  * @param grille : grille a modifier, 
  * ens : ensemble de coordonnees concernees

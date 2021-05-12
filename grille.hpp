@@ -29,7 +29,7 @@ class Grille {
 	void diminuePheroSucre();
 	EnsCoord placesVides();
 };
-
+double maxIntensitePheroNid(vector<Place> places);
 void placeNid(Grille &grille, EnsCoord ens);
 void placeSucre(Grille &grille, EnsCoord ens);
 void placeFourmis(Grille &grille, vector<Fourmi> fourmis);
