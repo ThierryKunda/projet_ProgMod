@@ -22,6 +22,8 @@ class Grille {
 	
 	Place chargePlace(Coord crds) const;
 	void rangePlace(Place p);
+	vector<Place> chargEnsPlace(EnsCoord crds);
+	void rangeEnsPlace(vector<Place> places);
 	void linearisePheroNid();
 	void diminuePheroSucre();
 	EnsCoord placesVides();
@@ -31,7 +33,7 @@ class Grille {
 void placeNid(Grille &grille, EnsCoord ens);
 void placeSucre(Grille &grille, EnsCoord ens);
 void placeFourmis(Grille &grille, vector<Fourmi> fourmis);
-void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &ens_nid);
+void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &ens_nid); 
 void lineariserPheroNid(Grille &grille);
 
 

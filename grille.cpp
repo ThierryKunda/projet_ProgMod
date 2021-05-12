@@ -20,11 +20,25 @@ Place Grille::chargePlace(Coord crds) const {
 	return Place(Coord{0,0});
 }
 
+vector<Place> Grille::chargEnsPlace(EnsCoord ens_c) {
+	vector<Place> ens_place;
+	for (Coord c: ens_c.get_coords()) {
+		ens_place.push_back(chargePlace(c));
+	}
+	return ens_place;
+}
+
 /* Setter (Place) */
 void Grille::rangePlace(Place p) {
 	for (Place pl: get_places()) {
 		if (p.get_coord() == pl.get_coord())
 			pl = p;
+	}
+}
+
+void Grille::rangeEnsPlace(vector<Place> places) {
+	for (Place p: places) {
+		rangePlace(p);
 	}
 }
 
