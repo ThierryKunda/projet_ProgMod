@@ -42,7 +42,10 @@ void Grille::rangeEnsPlace(vector<Place> places) {
 	}
 }
 
-/* Renvoie l'ensemble des coords de la place en paramètre */
+/* Renvoie l'ensemble des coords de la place en paramètre
+ * @param Place
+ * @return EnsCoord
+ */
 EnsCoord Grille::CoordsPlacesVoisines(Place place) {
 	return voisines(place.get_coord());
 }
