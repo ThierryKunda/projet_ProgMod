@@ -141,3 +141,20 @@ void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
 
 // TESTS
 
+TEST_CASE("Méthode chargeEnsPlace") {
+	vector<Place> places_init = {
+		Coord{0,0},
+		Coord{1,0},
+		Coord{2,0},
+		Coord{3,0},
+		Coord{4,0}
+	};
+	Grille grille = {places_init};
+	vector<Place> places_modifs = {Place{Coord{0,0}}, Place{Coord{2,0}}};
+	places_modifs[0].poseSucre();
+	places_modifs[1].poseNid();
+	grille.rangeEnsPlace(places_modifs);
+	vector<Place> modifs = grille.chargEnsPlace(EnsCoord{{Coord{0,0}, Coord{2,0}}});
+	CHECK(modifs[0].contientSucre());
+	CHECK(modifs[1].get_pheroNid() == 1);
+}
