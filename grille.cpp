@@ -25,6 +25,9 @@ Place Grille::chargePlace(Coord crds) const {
 	return Place(Coord{0,0});
 }
 
+/* Renvoie l'EnsCoord des cases vides
+ * @return EnsCoord
+ */
 EnsCoord Grille::placesVides() {
 	EnsCoord ens;
 	Coord c = {0,0};
