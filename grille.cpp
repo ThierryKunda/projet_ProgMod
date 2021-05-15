@@ -48,6 +48,9 @@ void Grille::rangePlace(Place p) {
 	}
 }
 
+/* Fonction équivalente à rangePlace pour un vecteur de places
+ * @param vector<Place>
+ */
 void Grille::rangeEnsPlace(vector<Place> places) {
 	for (Place p: places) {
 		rangePlace(p);
