@@ -16,6 +16,7 @@ class Grille {
 
 	// Constructeurs
 	Grille();
+	Grille(vector<Place> plcs);
 
 	// Méthodes
 	vector<Place> get_places() {return places;};

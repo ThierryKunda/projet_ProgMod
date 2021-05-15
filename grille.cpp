@@ -1,11 +1,16 @@
 #include <iostream>
 #include <vector>
+#include "doctest.h"
 #include "place.hpp"
 #include "grille.hpp"
 using namespace std;
 
 /* Constructeur vide de Grille */
 Grille::Grille() : places{{}} {}
+
+/* Constructeur : à partir d'un vecteur de Place */
+Grille::Grille(vector<Place> plcs) : places{plcs} {}
+
 
 /* Getter (Place)
 @return Place */
