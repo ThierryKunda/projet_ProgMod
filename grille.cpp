@@ -54,7 +54,7 @@ void Grille::rangeEnsPlace(vector<Place> places) {
 	}
 }
 
-/* Renvoie l'ensemble des coords de la place en paramètre
+/* Renvoie l'ensemble des coords des voisines de la place en paramètre
  * @param Place
  * @return EnsCoord
  */
@@ -128,3 +128,8 @@ void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
 		grille.rangePlace(p);	
 	}
 }
+
+
+
+// TESTS
+
