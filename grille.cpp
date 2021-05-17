@@ -50,10 +50,11 @@ vector<Place> Grille::chargEnsPlace(EnsCoord ens_c) {
 
 /* Setter (Place) */
 void Grille::rangePlace(Place p) {
-	for (Place pl: get_places()) {
-		if (p.get_coord() == pl.get_coord())
-			pl = p;
+	vector<Place> places_avant = get_places(); 
+	for (Place &pl: places_avant) {
+		if (p.get_coord() == pl.get_coord()) pl	 = p;
 	}
+	places = places_avant;
 }
 
 /* Fonction équivalente à rangePlace pour un vecteur de places
@@ -79,7 +80,7 @@ EnsCoord Grille::CoordsPlacesVoisines(Place place) {
  */
 double maxIntensitePheroNid(vector<Place> places) {
 	double max_intensite;
-	for (int i = 1; i < places.size(); i++) {
+	for (unsigned int i = 1; i < places.size(); i++) {
 		max_intensite = max(places[i].get_pheroNid(), places[i-1].get_pheroNid());
 	}
 	return max_intensite;
@@ -133,7 +134,7 @@ void placeSucre(Grille &grille, EnsCoord ens) {
 void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
 	EnsCoord ens = grille.placesVides();
 	Place p = {Coord{0,0}};
-	for (int i=0; i<fourmis.size(); i++) {
+	for (unsigned int i=0; i<fourmis.size(); i++) {
 		p = grille.chargePlace(ens.ieme(i));
 		p.poseFourmi(fourmis[i]);
 		grille.rangePlace(p);	
@@ -144,3 +145,16 @@ void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
 
 // TESTS
 
+TEST_CASE("Méthode rangePlace") {
+	Place place = {Coord{2,3}};
+	place.poseNid();
+	cout << "place pheroNid : " << place.get_pheroNid() << endl;
+	Grille grille = {{
+		Place{Coord{0,0}},
+		Place{Coord{1,2}},
+		Place{Coord{2,3}}
+	}};
+	grille.rangePlace(place);
+	Place p_modif = grille.chargePlace(place.get_coord());
+	CHECK(p_modif.get_pheroNid() == 1);
+}
