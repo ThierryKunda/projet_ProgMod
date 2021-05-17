@@ -148,7 +148,6 @@ void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
 TEST_CASE("Méthode rangePlace") {
 	Place place = {Coord{2,3}};
 	place.poseNid();
-	cout << "place pheroNid : " << place.get_pheroNid() << endl;
 	Grille grille = {{
 		Place{Coord{0,0}},
 		Place{Coord{1,2}},
@@ -157,4 +156,18 @@ TEST_CASE("Méthode rangePlace") {
 	grille.rangePlace(place);
 	Place p_modif = grille.chargePlace(place.get_coord());
 	CHECK(p_modif.get_pheroNid() == 1);
+}
+
+TEST_CASE("Méthode rangeEnsPlace") {
+	vector<Place> plusieurs_places = {{Coord{0,0}}, Coord{1,2}};
+	for (Place &p: plusieurs_places)
+		p.poseNid();
+	Grille grille = {{
+		Place{Coord{0,0}},
+		Place{Coord{1,2}},
+		Place{Coord{2,3}}
+	}};
+	grille.rangeEnsPlace(plusieurs_places);
+	vector<Place> p_modifs;
+	for (Place p_modif: p_modifs) CHECK(p_modif.contientNid());
 }
