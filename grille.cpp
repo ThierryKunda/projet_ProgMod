@@ -171,3 +171,18 @@ TEST_CASE("Méthode rangeEnsPlace") {
 	vector<Place> p_modifs;
 	for (Place p_modif: p_modifs) CHECK(p_modif.contientNid());
 }
+
+TEST_CASE("Méthode placesVides") {
+	Grille grille = {{
+		Place{Coord{0,0}},
+		Place{Coord{1,2}},
+		Place{Coord{2,3}}
+	}};
+	vector<Place> modifs = {Place{Coord{0,0}}, Place{Coord{2,3}}};
+	modifs[0].poseSucre(); modifs[1].poseSucre();
+	grille.rangeEnsPlace(modifs);
+	EnsCoord vides = grille.placesVides();
+	for (Coord c: vides.get_coords()) {
+		CHECK(c == grille.get_places()[1].get_coord());
+	}
+}
