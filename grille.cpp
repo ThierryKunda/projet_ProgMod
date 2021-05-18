@@ -133,7 +133,7 @@ void Grille::linearisePheroNid() {
         } // finpour j
     } // fintantque   
 }
-}
+
 
 /* Procédure placeNid
  * @param grille : grille a modifier, 
