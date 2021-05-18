@@ -49,7 +49,7 @@ vector<Place> Grille::chargEnsPlace(EnsCoord ens_c) {
 }
 
 /* Setter (Place) */
-void Grille::rangePlace(Place p) {
+void Grille::	rangePlace(Place p) {
 	vector<Place> places_avant = get_places(); 
 	for (Place &pl: places_avant) {
 		if (p.get_coord() == pl.get_coord()) pl	 = p;
@@ -91,7 +91,7 @@ void Grille::linearisePheroNid() {
 	vector<Place> places = get_places();
 	double m = 1;
 	// On initialise l'intensité à pour toutes les places
-	for (Place pl: places) {
+	for (Place &pl: places) {
 		pl.posePheroNid(1);
 	}
 	// On linéarise
@@ -111,7 +111,7 @@ void Grille::linearisePheroNid() {
 void placeNid(Grille &grille, EnsCoord ens) {
 	// Place un element de nid sur toutes les cases de la grille contenues dans l'ensemble ens
 	vector<Place> places  = grille.chargEnsPlace(ens);
-	for (Place p: places) {
+	for (Place &p: places) {
 		p.poseNid();
 	}
 	grille.rangeEnsPlace(places);
@@ -124,7 +124,7 @@ void placeNid(Grille &grille, EnsCoord ens) {
 void placeSucre(Grille &grille, EnsCoord ens) {
 	// Place du sucre sur toutes les cases de la grille contenues dans l'ensemble ens
 	vector<Place> places  = grille.chargEnsPlace(ens);
-	for (Place p: places) {
+	for (Place &p: places) {
 		p.poseSucre();
 	}
 	grille.rangeEnsPlace(places);
@@ -141,6 +141,21 @@ void placeFourmis(Grille &grille, vector<Fourmi> fourmis) {
 	}
 }
 
+void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &ens_nid, Grille &grille) {
+	Grille g;
+	// On définit la grille de taille TAILLEGRILLE x TAILLEGRILLE
+	vector<Place> places_init;
+	for (int i = 0; i < TAILLEGRILLE; i++) {
+		for (int j = 0; i < TAILLEGRILLE; i++) {
+			places_init.push_back(Place{Coord{i,j}});
+		}
+	}
+	g = {places_init};
+	// On pose les fourmis à leurs places respectives
+	placeFourmis(grille, fourmis);
+	placeSucre(grille, ens_sucre);
+	placeNid(grille, ens_nid);
+}
 
 
 // TESTS
