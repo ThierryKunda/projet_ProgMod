@@ -88,21 +88,51 @@ double maxIntensitePheroNid(vector<Place> places) {
 }
 
 void Grille::linearisePheroNid() {
-	// On copie les places de la grille
-	vector<Place> places = get_places();
-	double m = 1;
-	// On initialise l'intensité à pour toutes les places
-	for (Place &pl: places) {
-		pl.posePheroNid(1);
-	}
-	// On linéarise
-	for (Place pl: places) {
-		vector<Place> places_voisines = chargEnsPlace(CoordsPlacesVoisines(pl));
-		m = maxIntensitePheroNid(places_voisines);
-		if (pl.get_pheroNid() < 1) pl.posePheroNid(max(m - 1/TAILLEGRILLE, 0));
-	}
-	// On enregistre ces modifications en rangeant les places
-	rangeEnsPlace(places);
+    bool stable = false; // stable <- Faux
+    
+    Place p = Place(Coord{0,0}); // initialiastion des variables nécessaires 
+    Place pLin = Place(Coord{0,0});
+    
+    Coord c = Coord(0,0);
+    Coord d = Coord(0,0);
+    
+    EnsCoord lin = EnsCoord({{0,0},{0,1}});
+    vector<Coord> lin2;
+    
+    float maxPheroNid = 0;
+    
+    while(stable == false) { //tant que pas stable
+    stable = true; //stable <- vrai
+        
+        for(int i = 0; i < TAILLEGRILLE; i++) { // pour toutes les coordonnées c de la grille
+            for(int j = 0; j < TAILLEGRILLE; j++) {
+                c = Coord(i,j);
+                p = Grille::chargePlace(c); // p <- chargerPlace(c)
+                
+                if(p.get_pheroNid() <  1.) { // si p.pheroNid() < 1 faire
+                    lin = voisines(c); // coordVois(ici ,lin) <- voisins(c)
+                    maxPheroNid = 0; //  maxPheroNid <- 0
+                    lin2 = lin.get_coords(); 
+                    
+                    for(unsigned int k = 0; k < lin2.size(); k++) { // pour d dans coordVois(lin) faire
+                        d = lin.ieme(k);
+                        pLin = Grille::chargePlace(d); // voisin <- chargerPlace(v)
+                        maxPheroNid = max(maxPheroNid, pLin.get_pheroNid()); //  maxPhero <- max(maxPhero, voisin.pheroNid())
+                    } // finpour k
+                    maxPheroNid = maxPheroNid - 1. / TAILLEGRILLE; //  maxPhero <- maxPhero - 1. / TAILLE
+                    
+                    if(maxPheroNid > p.get_pheroNid()) { // si maxPhero > p.pheroNid() faire
+                        p.posePheroNid(maxPheroNid); // p.posePheroNid(maxPhero)
+                        rangePlace(p); // rangePlace(p)   // Ne pas oublier de mettre à jour la grille
+                        stable = false; // stable <- faux
+                    } // finsi
+                    
+                    
+                }  // finsi
+            } // finpour i
+        } // finpour j
+    } // fintantque   
+}
 }
 
 /* Procédure placeNid
