@@ -29,6 +29,7 @@ class Place{
     double get_pheroNid() const {return pheroNid;};
 	int get_pheroSucre() const {return pheroSucre;};
     
+    bool estVide() const {return numeroFourmi == -1 && !(contientNid()) && !(contientSucre());}
     bool contientSucre() const {return sucre;};
     bool contientNid() const {return pheroNid == 1;};
 	bool contientFourmi() const {return numeroFourmi != -1;};
