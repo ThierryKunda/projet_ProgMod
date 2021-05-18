@@ -158,6 +158,10 @@ void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &en
 }
 
 
+void lineariserPheroNid(Grille &grille) {
+	grille.linearisePheroNid();
+}
+
 // TESTS
 
 TEST_CASE("Méthode rangePlace") {
