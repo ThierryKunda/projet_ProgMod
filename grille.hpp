@@ -34,7 +34,7 @@ double maxIntensitePheroNid(vector<Place> places);
 void placeNid(Grille &grille, EnsCoord ens);
 void placeSucre(Grille &grille, EnsCoord ens);
 void placeFourmis(Grille &grille, vector<Fourmi> fourmis);
-void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &ens_nid); 
+void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &ens_nid, Grille &grille); 
 void lineariserPheroNid(Grille &grille);
 
 
