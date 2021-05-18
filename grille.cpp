@@ -33,7 +33,7 @@ EnsCoord Grille::placesVides() {
 	EnsCoord ens;
 	Coord c = {0,0};
 	for (Place p: get_places()) {
-		if (estVide(p)) {
+		if (p.estVide()) {
 			c = p.get_coord();
 			ens.ajoute(c);
 		}
