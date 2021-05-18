@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <exception>
 #include "doctest.h"
 #include "place.hpp"
 #include "grille.hpp"
