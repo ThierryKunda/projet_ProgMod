@@ -19,7 +19,9 @@ place.o: place.cpp place.hpp fourmi.hpp coord.hpp
 
 grille.o: grille.cpp grille.hpp place.hpp fourmi.hpp coord.hpp
 
-test: test.o coord.o fourmi.o place.o grille.o
+ecrfich.o: ecrfich.cpp grille.hpp grille.hpp place.hpp fourmi.hpp coord.hpp
+
+test: ecrfich.o test.o coord.o fourmi.o place.o grille.o
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 clean:
