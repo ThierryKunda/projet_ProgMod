@@ -3,6 +3,7 @@
 #include <sstream>      // pour ostringstream
 #include <fstream>      // pour ofstream
 #include <string>
+#include "coord.hpp"
 #include "doctest.h"
 using namespace std;
 
@@ -52,17 +53,12 @@ void dessinerDamier(){
   ofstream fic(filename.str(), ios::out | ios::trunc);
   // ecriture de l'entete
   fic << "P3" << endl
-      << 4 << " " << 4 << " " << endl
+      << TAILLEGRILLE << " " << TAILLEGRILLE << " " << endl
       << 255 << " " << endl;
   // ecriture des pixels
-  for (i = 0; i < 4; i++){
-      for (j = 0; j < 4; j++){
-        // calcul de la couleur
-        if (i == j) { r = 255; g = 0; b = 0; }
-        else { r = 0; g = 255; b = 0; }
-        // ecriture de la couleur dans le fichier
-        fic << r << " " << g << " " << b << "    ";
-      }
+
+  /* A compléter */
+  
     // fin de ligne dans l'image
     fic << endl;
   }
