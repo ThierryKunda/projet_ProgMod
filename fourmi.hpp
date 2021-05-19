@@ -42,9 +42,9 @@ class Colonie {
     vector<Fourmi> get_fourmis() const {return fourmis;};
     vector<int> get_indices() const {return indices;};
     void set_colonie(vector<Fourmi> col);
-    void ajouteFourmi(Fourmi f);
+    void ajouteFourmi(Fourmi &f);
     void ajouteFourmi(vector<Fourmi> col, int indice);
-    void retireFourmi(Fourmi f);
+    void retireFourmi(Fourmi &f);
     void retireFourmi(vector<Fourmi> col, int indice);
 };
 
