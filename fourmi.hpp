@@ -32,6 +32,7 @@ class Fourmi {
 
 class Colonie {
     // Attributs
+    string nom_colonie;
     vector<Fourmi> fourmis;
     vector<int> indices;
 
@@ -40,6 +41,7 @@ class Colonie {
     // Constructeurs
     Colonie();
     Colonie(vector<Fourmi> col);
+    Colonie(vector<Fourmi> col, string nom);
 
     // Méthodes
     vector<Fourmi> get_fourmis() const {return fourmis;};

@@ -10,10 +10,13 @@ Fourmi::Fourmi(Coord crds, int indice) : coords{crds}, num{indice}, sucre{false}
 }
 
 // Constructeurs
-Colonie::Colonie() : fourmis{{}}, indices{{}} {}
+Colonie::Colonie() : nom_colonie{}, fourmis{{}}, indices{{}} {}
 
-Colonie::Colonie(vector<Fourmi> col) : fourmis{col}, indices{{}} {
+Colonie::Colonie(vector<Fourmi> col) : fourmis{col} {
     for (Fourmi f: col) {indices.push_back(f.get_num());}
+}
+Colonie::Colonie(vector<Fourmi> col, string nom) : nom_colonie{nom} {
+    if (nom == "" || nom == " ") {throw("Nom de colonie invalide");}
 }
 
 /* Setter de fourmis 
