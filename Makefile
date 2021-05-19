@@ -1,11 +1,9 @@
 CXX = g++
 CXXFLAGS = -Wall -std=c++11 -g
-EXEC_FILES = test ecrfich
+EXEC_FILES = test tests ecrfich
 
-all: ecrfich
+all: test
 
-ecrfich.o: ecrfich.cpp
-	$(CXX) $(CXXFLAGS) -c $<
 
 test.o: test.cpp doctest.h
 	$(CXX) $(CXXFLAGS) -c $<
@@ -22,9 +20,6 @@ place.o: place.cpp place.hpp fourmi.hpp coord.hpp
 grille.o: grille.cpp grille.hpp place.hpp fourmi.hpp coord.hpp
 
 test: test.o coord.o fourmi.o place.o grille.o
-	$(CXX) -o $@ $^ $(LDFLAGS)
-
-ecrfich: ecrfich.o
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 clean:
