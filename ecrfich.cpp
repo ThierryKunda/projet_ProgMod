@@ -3,8 +3,19 @@
 #include <sstream>      // pour ostringstream
 #include <fstream>      // pour ofstream
 #include <string>
-
+#include "coord.hpp"
+#include "fourmi.hpp"
+#include "place.hpp"
+#include "grille.hpp"
 using namespace std;
+
+// Algorithme principal
+
+
+
+
+// Création de l'animation
+
 // variable globale permettant de creer des noms de fichiers differents
 int compteurFichier = 0;
 // action dessinant un damier
