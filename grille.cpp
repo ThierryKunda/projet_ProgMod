@@ -8,7 +8,7 @@
 using namespace std;
 
 /* Constructeur vide de Grille */
-Grille::Grille() {
+Grille::Grille() : places{{}} {
 	vector<Place> plcs;
 	for (int i = 0; i < TAILLEGRILLE; i++) {
 		for (int j = 0; j < TAILLEGRILLE; j++) {
