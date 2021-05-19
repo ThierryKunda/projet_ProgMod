@@ -40,7 +40,7 @@ void Colonie::ajouteFourmi(vector<Fourmi> fs, int indice) {
 /* Retire une fourmi de la colonie à partir de sa copie
  * @param Fourmi
  */
-void Colonie::retireFourmi(Fourmi f) {
+void Colonie::retireFourmi(Fourmi &f) {
     // On divise la colonie en deux parties
     vector<Fourmi> part_gauche;
     vector<Fourmi> part_droite;
