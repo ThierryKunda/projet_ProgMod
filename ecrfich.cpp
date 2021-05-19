@@ -9,11 +9,6 @@
 #include "grille.hpp"
 using namespace std;
 
-// Algorithme principal
-
-
-
-
 // Création de l'animation
 
 // variable globale permettant de creer des noms de fichiers differents
