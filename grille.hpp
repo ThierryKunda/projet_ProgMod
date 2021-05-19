@@ -36,6 +36,7 @@ void placeSucre(Grille &grille, EnsCoord ens);
 void placeFourmis(Grille &grille, vector<Fourmi> fourmis);
 void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &ens_nid, Grille &grille); 
 void lineariserPheroNid(Grille &grille);
-
+void dessineGrille(Grille grille);
+void dessineGrille(Grille grille, string contenu);
 
 #endif // GRILLE_HPP
