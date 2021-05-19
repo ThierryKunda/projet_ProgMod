@@ -3,11 +3,37 @@
 #include <sstream>      // pour ostringstream
 #include <fstream>      // pour ofstream
 #include <string>
-#include "coord.hpp"
-#include "fourmi.hpp"
-#include "place.hpp"
-#include "grille.hpp"
+#include "doctest.h"
 using namespace std;
+
+// type énuméré pour différentes couleurs
+enum class Couleur {blanc, noir, rouge, vert, bleu, magenta, jaune, cyan};
+
+
+/* "Ecris un pixel de couleur définie"
+@param ostream, fichier ppm
+@param int, R
+@param int, V
+@param int, B
+ */
+void ecriCouleur(ostream &fichier, int R, int V, int B) {
+  fichier << R << " " << V << " " << B << " ";
+}
+
+/* Ecris un pixel à partir d'une couleur prédéfinie */
+void ecriCouleur(ostream &fichier, Couleur couleur) {
+  switch (couleur) {
+    case Couleur::blanc: fichier << 255 << " " << 255 << " " << 255 << " "; break;
+    case Couleur::noir: fichier << 0 << " " << 0 << " " << 0 << " "; break;
+    case Couleur::rouge: fichier << 255 << " " << 0 << " " << 0 << " "; break;
+    case Couleur::vert: fichier << 0 << " " << 255 << " " << 0 << " "; break;
+    case Couleur::bleu: fichier << 0 << " " << 0 << " " << 255 << " "; break;
+    case Couleur::magenta: fichier << 255 << " " << 0 << " " << 255 << " "; break;
+    case Couleur::jaune: fichier << 255 << " " << 255 << " " << 0 << " "; break;
+    case Couleur::cyan: fichier << 0 << " " << 255 << " " << 255 << " "; break;
+  }
+}
+
 
 // Création de l'animation
 
@@ -42,19 +68,4 @@ void dessinerDamier(){
   }
   // fermeture du fichier
   fic.close();
-}
-int main (){
-  /* Algorithme principal */
-
-  Grille simulation;
-  vector<Place> places_init;
-  vector<Fourmi> fourmis_init = {Fourmi{Coord{0,1}, 0}, Fourmi{Coord{1,2}, 1}, Fourmi{Coord{5,6}, 2}};
-  EnsCoord positions_sucre = {vector<Coord>{Coord{2,3}, Coord{1,1}, Coord{2,2}}};
-  EnsCoord positions_nid = {vector<Coord>{Coord{TAILLEGRILLE/2, TAILLEGRILLE/2},
-                                          Coord{TAILLEGRILLE/2 + 1, TAILLEGRILLE/2},
-                                          Coord{TAILLEGRILLE/2 + 1, TAILLEGRILLE/2 + 1},
-                                          Coord{TAILLEGRILLE/2, TAILLEGRILLE/2 + 1}}};
-initialiseGrille(fourmis_init, positions_sucre, positions_nid, simulation);
-
-  return 0;
 }
