@@ -44,6 +44,17 @@ void dessinerDamier(){
   fic.close();
 }
 int main (){
-  dessinerDamier();
+  /* Algorithme principal */
+
+  Grille simulation;
+  vector<Place> places_init;
+  vector<Fourmi> fourmis_init = {Fourmi{Coord{0,1}, 0}, Fourmi{Coord{1,2}, 1}, Fourmi{Coord{5,6}, 2}};
+  EnsCoord positions_sucre = {vector<Coord>{Coord{2,3}, Coord{1,1}, Coord{2,2}}};
+  EnsCoord positions_nid = {vector<Coord>{Coord{TAILLEGRILLE/2, TAILLEGRILLE/2},
+                                          Coord{TAILLEGRILLE/2 + 1, TAILLEGRILLE/2},
+                                          Coord{TAILLEGRILLE/2 + 1, TAILLEGRILLE/2 + 1},
+                                          Coord{TAILLEGRILLE/2, TAILLEGRILLE/2 + 1}}};
+initialiseGrille(fourmis_init, positions_sucre, positions_nid, simulation);
+
   return 0;
 }
