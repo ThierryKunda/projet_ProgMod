@@ -39,4 +39,7 @@ void lineariserPheroNid(Grille &grille);
 void dessineGrille(Grille grille);
 void dessineGrille(Grille grille, string contenu);
 
+// Fonctions pour le programme principal
+void mettreAJourEnsFourmis(Grille &grille, vector<Fourmi> &tabFourmis);
+
 #endif // GRILLE_HPP
