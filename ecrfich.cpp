@@ -1,9 +1,4 @@
-#include <iostream>     // pour cout
-#include <iomanip>      // pour setfill, setw
-#include <sstream>      // pour ostringstream
-#include <fstream>      // pour ofstream
-#include <string>
-#include "coord.hpp"
+#include "ecrfich.hpp"
 #include "doctest.h"
 using namespace std;
 
@@ -35,15 +30,12 @@ void ecriCouleur(ostream &fichier, Couleur couleur) {
   }
 }
 
-
 // Création de l'animation
 
 // variable globale permettant de creer des noms de fichiers differents
 int compteurFichier = 0;
 // action dessinant un damier
-void dessinerDamier(){
-  int i,j;
-  int r,g,b;
+void creerFrame(string nom_animation, ){
   ostringstream filename;
   // creation d'un nouveau nom de fichier de la forme img347.ppm
   filename << "img" << setfill('0') << setw(3) << compteurFichier << ".ppm";
@@ -61,7 +53,6 @@ void dessinerDamier(){
   
     // fin de ligne dans l'image
     fic << endl;
-  }
   // fermeture du fichier
   fic.close();
 }
