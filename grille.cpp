@@ -7,7 +7,15 @@
 using namespace std;
 
 /* Constructeur vide de Grille */
-Grille::Grille() : places{{}} {}
+Grille::Grille() : places{} {
+	vector<Place> plcs;
+	for (int i = 0; i < TAILLEGRILLE; i++) {
+		for (int j = 0; j < TAILLEGRILLE; j++) {
+			plcs.push_back(Place{Coord{j,i}});
+		}
+	}
+	places = plcs;
+}
 
 /* Constructeur : à partir d'un vecteur de Place */
 Grille::Grille(vector<Place> plcs) : places{plcs} {}
