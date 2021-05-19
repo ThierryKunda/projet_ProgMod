@@ -2,21 +2,19 @@
 #include "doctest.h"
 using namespace std;
 
-// type énuméré pour différentes couleurs
-enum class Couleur {blanc, noir, rouge, vert, bleu, magenta, jaune, cyan};
-
-
 /* "Ecris un pixel de couleur définie"
 @param ostream, fichier ppm
-@param int, R
-@param int, V
-@param int, B
+@param int R
+@param int V
+@param int B
  */
 void ecriCouleur(ostream &fichier, int R, int V, int B) {
   fichier << R << " " << V << " " << B << " ";
 }
 
-/* Ecris un pixel à partir d'une couleur prédéfinie */
+/* Ecris un pixel à partir d'une couleur prédéfinie
+ * @param Couleur
+ */
 void ecriCouleur(ostream &fichier, Couleur couleur) {
   switch (couleur) {
     case Couleur::blanc: fichier << 255 << " " << 255 << " " << 255 << " "; break;
@@ -35,10 +33,10 @@ void ecriCouleur(ostream &fichier, Couleur couleur) {
 // variable globale permettant de creer des noms de fichiers differents
 int compteurFichier = 0;
 // action dessinant un damier
-void creerFrame(string nom_animation, ){
+void creerFrame(string nom_animation){
   ostringstream filename;
   // creation d'un nouveau nom de fichier de la forme img347.ppm
-  filename << "img" << setfill('0') << setw(3) << compteurFichier << ".ppm";
+  filename << nom_animation << setfill('0') << setw(3) << compteurFichier << ".ppm";
   compteurFichier++;
   cout << "Ecriture dans le fichier : " << filename.str() << endl;
   // ouverture du fichier
