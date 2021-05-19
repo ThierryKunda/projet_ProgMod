@@ -28,4 +28,4 @@ ecrfich: ecrfich.o
 	$(CXX) -o $@ $^ $(LDFLAGS)
 
 clean:
-	rm -f *.o $(EXEC_FILES)
+	rm -f *.o *.ppm *.gif $(EXEC_FILES)
