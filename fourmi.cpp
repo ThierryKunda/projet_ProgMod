@@ -5,7 +5,7 @@
 using namespace std;
 
 // Constructeur
-Fourmi::Fourmi(Coord crds, int indice) : coords{crds}, num{indice}, sucre{false}{
+Fourmi::Fourmi(Coord crds, int indice) : coords{crds}, num{indice}, sucre{false}, vivante{true} {
     if (num < 0) {throw("Indice négatif : non valide.");}
 }
 
