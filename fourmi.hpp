@@ -10,6 +10,7 @@ class Fourmi {
     Coord coords;
     int num;
     bool sucre;
+    bool vivante;
 
     public:
 
@@ -24,6 +25,7 @@ class Fourmi {
     bool porteSucre() const {return sucre;};
     void prendSucre() {sucre = true;};
     void poseSucre() {sucre = false;};
+    bool estVivante() {return vivante;};
 
 };
 
