@@ -188,10 +188,41 @@ void initialiseGrille(vector<Fourmi> &fourmis, EnsCoord &ens_sucre, EnsCoord &en
 	placeNid(grille, ens_nid);
 }
 
-
 void lineariserPheroNid(Grille &grille) {
 	grille.linearisePheroNid();
 }
+
+void dessineGrille(Grille grille) {
+	vector<Place> places = grille.get_places();
+	for (int i = 0; i < TAILLEGRILLE*TAILLEGRILLE; i++) {
+		if (places[i].contientFourmi()) {
+			cout << " F ";
+		} else if (places[i].contientSucre()) {
+			cout << " S ";
+		} else if (places[i].contientNid()) {
+			cout << " N ";
+		} else {
+			cout << " x ";
+		}
+		if (i % TAILLEGRILLE == 0) cout << endl;
+	}
+	cout << endl;
+}
+
+void dessineGrille(Grille grille, string contenu) {
+	vector<Place> places = grille.get_places();
+	for (int i = 0; i < TAILLEGRILLE*TAILLEGRILLE; i++) {
+		if (contenu == "pheroSucre") {
+			cout << " " << places[i].get_pheroSucre() << " ";
+		} else if (contenu == "pheroNid") {
+			cout << " " << places[i].get_pheroNid() << " ";
+		} else {throw("Non valide");}
+		if (i % TAILLEGRILLE == 0) cout << endl;
+	}
+	cout << endl;
+}
+
+
 
 // TESTS
 
@@ -235,4 +266,17 @@ TEST_CASE("Méthode placesVides") {
 	for (Coord c: vides.get_coords()) {
 		CHECK(c == grille.get_places()[1].get_coord());
 	}
+}
+
+TEST_CASE("Affichage : texte") {
+	vector<Place> places_init;
+	for (int i = 0; i < TAILLEGRILLE; i++) {
+		for (int j = 0; j < TAILLEGRILLE; j++) {
+			places_init.push_back(Place{Coord{j,i}});
+		}
+	}
+	places_init[TAILLEGRILLE * (TAILLEGRILLE/2-1) + TAILLEGRILLE/2].poseNid();
+	Grille g = {places_init};
+	g.linearisePheroNid();
+	dessineGrille(g, "pheroNid");
 }
