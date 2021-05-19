@@ -4,10 +4,15 @@
 #include "doctest.h"
 using namespace std;
 
-// Constructeur
-Fourmi::Fourmi(Coord crds, int indice) : coords{crds}, num{indice}, sucre{false}, vivante{true} {
+// Constructeurs
+Fourmi::Fourmi(Coord crds, int indice) : coords{crds}, num{indice}, sucre{false}, vivante{true}, colonie{} {
     if (num < 0) {throw("Indice négatif : non valide.");}
 }
+Fourmi::Fourmi(Coord crds, int indice, string nom_col): coords{crds}, num{indice}, sucre{false}, vivante{true}, colonie{nom_col} {
+    if (num < 0) {throw("Indice négatif : non valide.");}
+    if (nom_col == "" || nom_col == " ") {throw("Nom de colonie invalide");};
+}
+
 
 // Constructeurs
 Colonie::Colonie() : nom_colonie{}, fourmis{{}}, indices{{}} {}

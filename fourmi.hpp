@@ -11,14 +11,17 @@ class Fourmi {
     int num;
     bool sucre;
     bool vivante;
+    string colonie;
 
     public:
 
     // Constructeur
     Fourmi(Coord crds, int indice);
+    Fourmi(Coord crds, int indice, string nom_col);
 
     // Méthodes
     Coord get_coords() const {return coords;};
+    string get_colonie() const {return colonie;};
     void deplace(Coord c) {coords = c;};
     void deplace(int lig, int col) {coords = {lig, col};};
     int get_num() const {return num;};
