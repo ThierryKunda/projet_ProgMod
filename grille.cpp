@@ -88,50 +88,30 @@ double maxIntensitePheroNid(vector<Place> places) {
 }
 
 void Grille::linearisePheroNid() {
-    bool stable = false; // stable <- Faux
-    
-    Place p = Place(Coord{0,0}); // initialiastion des variables nécessaires 
-    Place pLin = Place(Coord{0,0});
-    
-    Coord c = Coord(0,0);
-    Coord d = Coord(0,0);
-    
-    EnsCoord lin = EnsCoord({{0,0},{0,1}});
-    vector<Coord> lin2;
-    
-    float maxPheroNid = 0;
-    
-    while(stable == false) { //tant que pas stable
-    stable = true; //stable <- vrai
-        
-        for(int i = 0; i < TAILLEGRILLE; i++) { // pour toutes les coordonnées c de la grille
-            for(int j = 0; j < TAILLEGRILLE; j++) {
-                c = Coord(i,j);
-                p = Grille::chargePlace(c); // p <- chargerPlace(c)
-                
-                if(p.get_pheroNid() <  1.) { // si p.pheroNid() < 1 faire
-                    lin = voisines(c); // coordVois(ici ,lin) <- voisins(c)
-                    maxPheroNid = 0; //  maxPheroNid <- 0
-                    lin2 = lin.get_coords(); 
-                    
-                    for(unsigned int k = 0; k < lin2.size(); k++) { // pour d dans coordVois(lin) faire
-                        d = lin.ieme(k);
-                        pLin = Grille::chargePlace(d); // voisin <- chargerPlace(v)
-                        maxPheroNid = max(maxPheroNid, pLin.get_pheroNid()); //  maxPhero <- max(maxPhero, voisin.pheroNid())
-                    } // finpour k
-                    maxPheroNid = maxPheroNid - 1. / TAILLEGRILLE; //  maxPhero <- maxPhero - 1. / TAILLE
-                    
-                    if(maxPheroNid > p.get_pheroNid()) { // si maxPhero > p.pheroNid() faire
-                        p.posePheroNid(maxPheroNid); // p.posePheroNid(maxPhero)
-                        rangePlace(p); // rangePlace(p)   // Ne pas oublier de mettre à jour la grille
-                        stable = false; // stable <- faux
-                    } // finsi
-                    
-                    
-                }  // finsi
-            } // finpour i
-        } // finpour j
-    } // fintantque   
+    bool stable = false;
+	while (!stable) {
+		stable = true;
+		EnsCoord coords_grille;
+		// On récupère les coordonnées de la grille
+		for (Place pl: get_places()) {coords_grille.ajoute(pl.get_coord());}
+		for (Coord c: coords_grille.get_coords()) {
+			Place p = chargePlace(c);
+			if (p.get_pheroNid() < 1) {
+				EnsCoord coords_vois = voisines(c);
+				double maxPhero = 0;
+				for (Coord v: coords_vois.get_coords()) {
+					Place voisin = chargePlace(v);
+					maxPhero = max(maxPhero, voisin.get_pheroNid());
+				} // fin Pour
+				maxPhero = maxPhero - 1. / TAILLEGRILLE;
+				if (maxPhero > p.get_pheroNid()) {
+					p.posePheroNid(maxPhero);
+					rangePlace(p);
+					stable = false;
+				}
+			}
+		}
+	}   
 }
 
 
