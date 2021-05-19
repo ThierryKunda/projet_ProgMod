@@ -2,12 +2,13 @@
 #include <vector>
 #include <exception>
 #include "doctest.h"
+#include "coord.hpp"
 #include "place.hpp"
 #include "grille.hpp"
 using namespace std;
 
 /* Constructeur vide de Grille */
-Grille::Grille() : places{} {
+Grille::Grille() {
 	vector<Place> plcs;
 	for (int i = 0; i < TAILLEGRILLE; i++) {
 		for (int j = 0; j < TAILLEGRILLE; j++) {
