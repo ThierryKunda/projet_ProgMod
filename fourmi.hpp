@@ -26,6 +26,7 @@ class Fourmi {
     void prendSucre() {sucre = true;};
     void poseSucre() {sucre = false;};
     bool estVivante() {return vivante;};
+    void meurt() {vivante = false;};
 
 };
 
