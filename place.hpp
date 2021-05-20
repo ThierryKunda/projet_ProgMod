@@ -27,10 +27,9 @@ class Place{
     Coord get_coord() const {return coord;};
     int get_numeroFourmi() const {return numeroFourmi;};
     double get_pheroNid() const {return pheroNid;};
-<<<<<<< HEAD
-=======
+// HEAD
+
 	int get_pheroSucre() const {return pheroSucre;};
->>>>>>> 8bf6b7fb93b43075635f6ff4f9d21b44402e5a84
     
     bool estVide() const {return numeroFourmi == -1 && !(contientNid()) && !(contientSucre());}
     bool contientSucre() const {return sucre;};

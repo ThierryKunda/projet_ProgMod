@@ -20,11 +20,7 @@ place.o: place.cpp place.hpp fourmi.hpp coord.hpp
 grille.o: grille.cpp grille.hpp place.hpp fourmi.hpp coord.hpp
 	$(CXX) $(CXXFLAGS) -c $<
 
-ecrfich.o: ecrfich.cpp grille.hpp grille.hpp place.hpp fourmi.hpp coord.hpp
-	$(CXX) $(CXXFLAGS) -c $<
-principal.o: principal.cpp ecrfich.hpp grille.hpp grille.hpp place.hpp fourmi.hpp coord.hpp
-	$(CXX) $(CXXFLAGS) -c $<
-test: principal.o ecrfich.o test.o coord.o fourmi.o place.o grille.o
+test: test.o coord.o fourmi.o place.o grille.o
 	$(CXX) -o $@ $^
 
 clean:
