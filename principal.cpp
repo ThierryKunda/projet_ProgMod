@@ -3,6 +3,41 @@
 #include "principal.hpp"
 using namespace std;
 
+// Fonctions et méthodes de l'algorithme principale
+
+bool condition_1(int x, Fourmi f, Place p1, Place p2) {
+    // On initialise à partir des attributs de f
+    Fourmi fourmi_adj = {p1.get_coord(), f.get_num(), f.get_colonie()};
+    for (Fourmi f_adj: fourmis_init) {
+        if (f_adj.get_num() == p2.get_numeroFourmi()) {fourmi_adj = f_adj;}
+    }
+    return f.estVivante() && p2.contientFourmi() && (f.get_colonie()  == fourmi_adj.get_colonie());
+}
+
+bool condition_2(int x, Fourmi f, Place p1, Place p2) {
+    return !f.porteSucre() && p2.contientSucre();
+}
+
+bool condition_3(int x, Fourmi f, Place p1, Place p2) {
+    return f.porteSucre() && p2.contientNid();
+}
+
+bool condition_4(int x, Fourmi f, Place p1, Place p2) {
+    return f.porteSucre() && p2.estVide() && estPlusProcheNid(p1, p2);
+}
+
+bool condition_5(int x, Fourmi f, Place p1, Place p2) {
+    return !f.porteSucre() && p2.estSurUnePiste() && p2.estVide() && !estPlusProcheNid(p1,p2);
+}
+
+bool condition_6(int x, Fourmi f, Place p1, Place p2) {
+    return !f.porteSucre() && p2.estSurUnePiste() && p2.estVide();
+}
+
+bool condition_7(int x, Fourmi f, Place p1, Place p2) {
+    return !f.porteSucre() && p2.estVide();
+}
+
 int main() {
     /* Algorithme principal */
 
@@ -23,6 +58,6 @@ int main() {
     positions_nid.ajoute(Coord{TAILLEGRILLE/2, TAILLEGRILLE/2});
     initialiseGrille(fourmis_init, positions_sucre, positions_nid, simulation);
     lineariserPheroNid(simulation);
-    dessineGrille(simulation);
+    // dessineGrille(simulation);
     return 0;
 }
