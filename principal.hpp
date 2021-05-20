@@ -15,8 +15,18 @@ EnsCoord positions_nid;
 
 void mettreAJourUneFourmi(Grille &grille, Fourmi &fourmi);
 void mettreAJourEnsFourmis(Grille &grille, tabFourmi &tabFourmis);
-bool condition_n(int x, Fourmi f, Place p1, Place p2);
-void action_n(int x, Fourmi &f);
+bool condition_1(int x, Fourmi f, Place p1, Place p2);
+bool condition_2(int x, Fourmi f, Place p1, Place p2);
+bool condition_3(int x, Fourmi f, Place p1, Place p2);
+bool condition_4(int x, Fourmi f, Place p1, Place p2);
+bool condition_5(int x, Fourmi f, Place p1, Place p2);
+bool condition_6(int x, Fourmi f, Place p1, Place p2);
+void action_1(int x, Fourmi &f);
+void action_2(int x, Fourmi &f);
+void action_3(int x, Fourmi &f);
+void action_4(int x, Fourmi &f);
+void action_5(int x, Fourmi &f);
+void action_6(int x, Fourmi &f);
 Coord voisinVideAleatoire(Grille g, Place p);
 
 #endif
