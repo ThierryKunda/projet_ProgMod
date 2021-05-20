@@ -5,7 +5,7 @@ using namespace std;
 
 // Fonctions et méthodes de l'algorithme principale
 
-bool condition_1(int x, Fourmi f, Place p1, Place p2) {
+bool condition_1(Fourmi f, Place p1, Place p2) {
     // On initialise à partir des attributs de f
     Fourmi fourmi_adj = {p1.get_coord(), f.get_num(), f.get_colonie()};
     for (Fourmi f_adj: fourmis_init) {
@@ -14,27 +14,27 @@ bool condition_1(int x, Fourmi f, Place p1, Place p2) {
     return f.estVivante() && p2.contientFourmi() && (f.get_colonie()  == fourmi_adj.get_colonie());
 }
 
-bool condition_2(int x, Fourmi f, Place p1, Place p2) {
+bool condition_2(Fourmi f, Place p1, Place p2) {
     return !f.porteSucre() && p2.contientSucre();
 }
 
-bool condition_3(int x, Fourmi f, Place p1, Place p2) {
+bool condition_3(Fourmi f, Place p1, Place p2) {
     return f.porteSucre() && p2.contientNid();
 }
 
-bool condition_4(int x, Fourmi f, Place p1, Place p2) {
+bool condition_4(Fourmi f, Place p1, Place p2) {
     return f.porteSucre() && p2.estVide() && estPlusProcheNid(p1, p2);
 }
 
-bool condition_5(int x, Fourmi f, Place p1, Place p2) {
+bool condition_5(Fourmi f, Place p1, Place p2) {
     return !f.porteSucre() && p2.estSurUnePiste() && p2.estVide() && !estPlusProcheNid(p1,p2);
 }
 
-bool condition_6(int x, Fourmi f, Place p1, Place p2) {
+bool condition_6(Fourmi f, Place p1, Place p2) {
     return !f.porteSucre() && p2.estSurUnePiste() && p2.estVide();
 }
 
-bool condition_7(int x, Fourmi f, Place p1, Place p2) {
+bool condition_7(Fourmi f, Place p1, Place p2) {
     return !f.porteSucre() && p2.estVide();
 }
 
