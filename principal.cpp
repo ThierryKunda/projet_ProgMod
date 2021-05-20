@@ -38,6 +38,20 @@ bool condition_7(Fourmi f, Place p1, Place p2) {
     return !f.porteSucre() && p2.estVide();
 }
 
+bool condition_n(int x, Fourmi f, Place p1, Place p2) {
+    switch (x)
+    {
+    case 1 : return condition_1(f, p1, p2); break;
+    case 2 : return condition_2(f, p1, p2); break;
+    case 3: return condition_3(f, p1, p2); break;
+    case 4 : return condition_4(f, p1, p2); break;
+    case 5 : return condition_5(f, p1, p2); break;
+    case 6 : return condition_6(f, p1, p2); break;
+    case 7 : return condition_7(f, p1, p2); break;
+    default: return false;break;
+    }
+}
+
 int main() {
     /* Algorithme principal */
 
