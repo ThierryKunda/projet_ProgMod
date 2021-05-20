@@ -21,12 +21,14 @@ bool condition_3(int x, Fourmi f, Place p1, Place p2);
 bool condition_4(int x, Fourmi f, Place p1, Place p2);
 bool condition_5(int x, Fourmi f, Place p1, Place p2);
 bool condition_6(int x, Fourmi f, Place p1, Place p2);
+bool condition_7(int x, Fourmi f, Place p1, Place p2);
 void action_1(int x, Fourmi &f);
 void action_2(int x, Fourmi &f);
 void action_3(int x, Fourmi &f);
 void action_4(int x, Fourmi &f);
 void action_5(int x, Fourmi &f);
 void action_6(int x, Fourmi &f);
+void action_7(int x, Fourmi &f);
 Coord voisinVideAleatoire(Grille g, Place p);
 
 #endif
