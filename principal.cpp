@@ -78,7 +78,7 @@ void action_6(Fourmi &f, Place &p1, Place p2) {
     deplaceFourmi(f, p1, p2);
 }
 
-void action_5(Fourmi &f, Place &p1, Place p2) {
+void action_7(Fourmi &f, Place &p1, Place p2) {
     deplaceFourmi(f, p1, p2);
 }
 
