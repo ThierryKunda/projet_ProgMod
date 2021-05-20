@@ -28,6 +28,24 @@ void ecriCouleur(ostream &fichier, Couleur couleur) {
   }
 }
 
+void couleurUnie(ostream& fichier, int R, int V, int B) {
+  for (int i = 0; i < TAILLEGRILLE; i++) {
+    for (int j = 0; j < TAILLEGRILLE; j++) {
+      ecriCouleur(fichier, R,V,B);
+    }
+    fichier << endl;
+  }
+}
+
+void couleurUnie(ostream& fichier, Couleur couleur) {
+  for (int i = 0; i < TAILLEGRILLE; i++) {
+    for (int j = 0; j < TAILLEGRILLE; j++) {
+      ecriCouleur(fichier, couleur);
+    }
+    fichier << endl;
+  }
+}
+
 // Création de l'animation
 
 // variable globale permettant de creer des noms de fichiers differents
