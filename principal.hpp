@@ -5,4 +5,9 @@
 #include "ecrfich.hpp"
 using namespace std;
 
+Grille simulation;
+vector<Fourmi> fourmis_init;
+EnsCoord positions_sucre;
+EnsCoord positions_nid;
+
 #endif
