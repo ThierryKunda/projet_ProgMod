@@ -27,7 +27,7 @@ bool condition_4(Fourmi f, Place p1, Place p2) {
 }
 
 bool condition_5(Fourmi f, Place p1, Place p2) {
-    return !f.porteSucre() && p2.estSurUnePiste() && p2.estVide() && !estPlusProcheNid(p1,p2);
+    return !f.porteSucre() && p1.estSurUnePiste() && p2.estVide() && !estPlusProcheNid(p1,p2) && p2.estSurUnePiste();
 }
 
 bool condition_6(Fourmi f, Place p1, Place p2) {
@@ -51,6 +51,39 @@ bool condition_n(int x, Fourmi f, Place p1, Place p2) {
     default: return false;break;
     }
 }
+
+void action_1(Fourmi &f, Place &p1, Place &p2) {
+    p2.enleveFourmi();
+}
+
+void action_2(Fourmi &f, Place &p1, Place p2) {
+    f.porteSucre();
+    p1.posePheroSucre();
+}
+
+void action_3(Fourmi &f, Place &p1, Place p2) {
+    p1.poseSucre();
+}
+
+void action_4(Fourmi &f, Place &p1, Place p2) {
+    deplaceFourmi(f, p1, p2);
+    p2.posePheroSucre();
+}
+
+void action_5(Fourmi &f, Place &p1, Place p2) {
+    deplaceFourmi(f, p1, p2);
+}
+
+void action_6(Fourmi &f, Place &p1, Place p2) {
+    deplaceFourmi(f, p1, p2);
+}
+
+void action_5(Fourmi &f, Place &p1, Place p2) {
+    deplaceFourmi(f, p1, p2);
+}
+
+
+
 
 int main() {
     /* Algorithme principal */
