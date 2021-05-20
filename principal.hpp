@@ -23,13 +23,13 @@ bool condition_5(Fourmi f, Place p1, Place p2);
 bool condition_6(Fourmi f, Place p1, Place p2);
 bool condition_7(Fourmi f, Place p1, Place p2);
 bool condition_n(int x, Fourmi f, Place p1, Place p2);
-void action_1(int x, Fourmi &f);
-void action_2(int x, Fourmi &f);
-void action_3(int x, Fourmi &f);
-void action_4(int x, Fourmi &f);
-void action_5(int x, Fourmi &f);
-void action_6(int x, Fourmi &f);
-void action_7(int x, Fourmi &f);
+void action_1(Fourmi &f, Place &p1, Place &p2);
+void action_2(Fourmi &f, Place &p1, Place &p2);
+void action_3(Fourmi &f, Place &p1, Place &p2);
+void action_4(Fourmi &f, Place &p1, Place &p2);
+void action_5(Fourmi &f, Place &p1, Place &p2);
+void action_6(Fourmi &f, Place &p1, Place &p2);
+void action_7(Fourmi &f, Place &p1, Place &p2);
 Coord voisinVideAleatoire(Grille g, Place p);
 
 #endif
