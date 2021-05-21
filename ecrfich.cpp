@@ -3,19 +3,19 @@
 using namespace std;
 
 /* "Ecris un pixel de couleur définie"
-@param ostream, fichier ppm
+@param ofstream, fichier ppm
 @param int R
 @param int V
 @param int B
  */
-void ecriCouleur(ostream &fichier, int R, int V, int B) {
+void ecriCouleur(ofstream &fichier, int R, int V, int B) {
   fichier << R << " " << V << " " << B << " ";
 }
 
 /* Ecris un pixel à partir d'une couleur prédéfinie
  * @param Couleur
  */
-void ecriCouleur(ostream &fichier, Couleur couleur) {
+void ecriCouleur(ofstream &fichier, Couleur couleur) {
   switch (couleur) {
     case Couleur::blanc: fichier << 255 << " " << 255 << " " << 255 << " "; break;
     case Couleur::noir: fichier << 0 << " " << 0 << " " << 0 << " "; break;
@@ -28,7 +28,7 @@ void ecriCouleur(ostream &fichier, Couleur couleur) {
   }
 }
 
-void couleurUnie(ostream& fichier, int R, int V, int B) {
+void couleurUnie(ofstream& fichier, int R, int V, int B) {
   for (int i = 0; i < TAILLEGRILLE; i++) {
     for (int j = 0; j < TAILLEGRILLE; j++) {
       ecriCouleur(fichier, R,V,B);
@@ -37,7 +37,7 @@ void couleurUnie(ostream& fichier, int R, int V, int B) {
   }
 }
 
-void couleurUnie(ostream& fichier, Couleur couleur) {
+void couleurUnie(ofstream& fichier, Couleur couleur) {
   for (int i = 0; i < TAILLEGRILLE; i++) {
     for (int j = 0; j < TAILLEGRILLE; j++) {
       ecriCouleur(fichier, couleur);
@@ -51,7 +51,7 @@ void couleurUnie(ostream& fichier, Couleur couleur) {
 // variable globale permettant de creer des noms de fichiers differents
 int compteurFichier = 0;
 // action dessinant un damier
-void creerFrame(string nom_animation){
+void creerFrame(string nom_animation, Grille grille){
   ostringstream filename;
   // creation d'un nouveau nom de fichier de la forme img347.ppm
   filename << nom_animation << setfill('0') << setw(3) << compteurFichier << ".ppm";
@@ -63,9 +63,23 @@ void creerFrame(string nom_animation){
   fic << "P3" << endl
       << TAILLEGRILLE << " " << TAILLEGRILLE << " " << endl
       << 255 << " " << endl;
+  
   // ecriture des pixels
 
-  /* A compléter */
+  // On récupère les cases de la grille
+  vector<Place> cases_grille = grille.get_places();
+  for (int i = 0; i < TAILLEGRILLE*TAILLEGRILLE; i++) {
+		if (i % TAILLEGRILLE == 0 && i != 0) fic << endl;
+    if (cases_grille[i].contientFourmi()) {
+			ecriCouleur(fic, Couleur::noir);
+		} else if (cases_grille[i].contientSucre()) {
+			ecriCouleur(fic, Couleur::magenta);
+		} else if (cases_grille[i].contientNid()) {
+			ecriCouleur(fic, Couleur::jaune);
+		} else {
+			ecriCouleur(fic, Couleur::blanc);
+		}
+  }
   
     // fin de ligne dans l'image
     fic << endl;
