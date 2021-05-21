@@ -15,5 +15,6 @@ enum class Couleur {blanc, noir, rouge, vert, bleu, magenta, jaune, cyan};
 
 void ecriCouleur(ostream &fichier, int R, int V, int B);
 void ecriCouleur(ostream &fichier, Couleur couleur);
+void creerFrame(string nom_animation, Grille grille);
 
 #endif
