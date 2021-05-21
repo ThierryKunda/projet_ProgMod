@@ -22,10 +22,13 @@ place.o: place.cpp place.hpp fourmi.hpp coord.hpp
 grille.o: grille.cpp grille.hpp place.hpp fourmi.hpp coord.hpp
 	$(CXX) $(CXXFLAGS) -c $<
 
-test: test.o coord.o fourmi.o place.o grille.o
+ecrfich.o: ecrfich.cpp grille.hpp grille.hpp place.hpp fourmi.hpp coord.hpp
+	$(CXX) $(CXXFLAGS) -c $<
+
+test: test.o ecrfich.o coord.o fourmi.o place.o grille.o
 	$(CXX) -o $@ $^
 
-principal: principal.o coord.o fourmi.o place.o grille.o
+principal: principal.o ecrfich.o coord.o fourmi.o place.o grille.o
 	$(CXX) -o $@ $^
 clean:
 	rm -f *.o *.ppm *.gif $(EXEC_FILES)
