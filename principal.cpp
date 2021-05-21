@@ -38,6 +38,13 @@ bool condition_7(Fourmi f, Place p1, Place p2) {
     return !f.porteSucre() && p2.estVide();
 }
 
+/* Vérifie la condition associée au numéro entré par l'utilisateur
+ * @param x numero de la condition
+ * @param f fourmi à tester
+ * @param p1 place occupée par f
+ * @param p2 place à comparer
+ * @return bool
+*/
 bool condition_n(int x, Fourmi f, Place p1, Place p2) {
     switch (x)
     {
@@ -82,6 +89,12 @@ void action_7(Fourmi &f, Place &p1, Place &p2) {
     deplaceFourmi(f, p1, p2);
 }
 
+/* Execute l'action associée au numéro entré par l'utilisateur
+ * @param x numero de l'action
+ * @param F référence de la fourmi étudiée
+ * @param P1 référence de la place occupée par F
+ * @param P2 référence de la place à comparer
+*/
 void action_n(int x, Fourmi &F, Place &P1, Place &P2) {
     switch (x)
     {
