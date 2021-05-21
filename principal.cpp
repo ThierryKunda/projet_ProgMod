@@ -150,6 +150,15 @@ int main() {
     positions_nid.ajoute(Coord{TAILLEGRILLE/2, TAILLEGRILLE/2});
     initialiseGrille(fourmis_init, positions_sucre, positions_nid, simulation);
     lineariserPheroNid(simulation);
-    // dessineGrille(simulation);
+
+    /* Boucle principale */
+
+    system("clear"); // On efface le terminal avant d'afficher la grille
+    for (int i = 1; i <= 100; i++) {
+        mettreAJourEnsFourmis(simulation, fourmis_init);
+        dessineGrille(simulation);
+        retarder(1000); // 0.5 secondes entre chaque changement
+        system("clear"); // On rafraichit l'affichage
+    }
     return 0;
 }
