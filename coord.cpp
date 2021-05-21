@@ -1,4 +1,6 @@
 #include <iostream>
+#include <time.h>
+#include <unistd.h>
 #include "coord.hpp"
 #include "doctest.h"
 
@@ -74,8 +76,12 @@ void EnsCoord::ajoute(const Coord c) {
 	coords.push_back(c);
 }
 
+/* Renvoie aléatoirement des coordonnées de l'ensemble 
+ * Le programme doit au préalable executer srand(time(NULL))
+*/
 Coord EnsCoord::choixHasard() const {
-	int ind_aleat = rand() % taille();
+// Chronomètre qui permet de générer la graine aléatoire
+	int ind_aleat; ind_aleat = rand() % taille();
 	return coords[ind_aleat];
 }
 
@@ -206,9 +212,14 @@ TEST_CASE("Fonction voisines") {
 }
 
 TEST_CASE("Méthode choixHasard") {
+	srand(time(NULL));
 	EnsCoord ens = {vector<Coord>{{1,2}, {3,4}, {5,6}}};
-	Coord choix_coord = ens.choixHasard();
-	CHECK(ens.contient(choix_coord));
-	cout << "Coordonnées aléatoires : " << choix_coord << ens.choixHasard() << ens.choixHasard() << endl;
+	Coord choix_coord = {0,0};
+	for (int i = 0; i < 10; i++) {
+		choix_coord = ens.choixHasard();
+		CHECK(ens.contient(choix_coord));
+		cout << "Coordonnées aléatoires : " << choix_coord << endl;
+		usleep(950000); // On laisse un délai pour observer les changements en fonction du temps
+	}
 }
 
