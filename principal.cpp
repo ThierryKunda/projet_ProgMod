@@ -133,11 +133,13 @@ void mettreAJourEnsFourmis(Grille &grille, tabFourmi &tabFourmis) {
 int main() {
     /* Algorithme principal */
 
+    srand(time(NULL));
+
     // 4 fourmis 
     fourmis_init.push_back(Fourmi{Coord{0,0}, 0, "colonie1"});
-    fourmis_init.push_back(Fourmi{Coord{TAILLEGRILLE-1,0}, 1, "colonie2"});
-    fourmis_init.push_back(Fourmi{Coord{0, TAILLEGRILLE-1}, 2,"colonie3"});
-    fourmis_init.push_back(Fourmi{Coord{TAILLEGRILLE-1, TAILLEGRILLE-1}, 3, "colonie4"});
+    fourmis_init.push_back(Fourmi{Coord{TAILLEGRILLE,0}, 1, "colonie2"});
+    fourmis_init.push_back(Fourmi{Coord{0, TAILLEGRILLE}, 2,"colonie3"});
+    fourmis_init.push_back(Fourmi{Coord{TAILLEGRILLE, TAILLEGRILLE}, 3, "colonie4"});
     // 4 éléments de sucre
     positions_sucre.ajoute(Coord{2,8});
     positions_sucre.ajoute(Coord{3,7});
