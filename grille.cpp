@@ -41,7 +41,7 @@ Place Grille::chargePlace(Coord crds) const {
 EnsCoord Grille::placesVides() {
 	EnsCoord ens;
 	Coord c = {0,0};
-	for (Place p: get_places()) {
+	for (Place p: places) {
 		if (p.estVide()) {
 			c = p.get_coord();
 			ens.ajoute(c);
@@ -59,19 +59,17 @@ vector<Place> Grille::chargEnsPlace(EnsCoord ens_c) {
 }
 
 /* Setter (Place) */
-void Grille::	rangePlace(Place p) {
-	vector<Place> places_avant = get_places(); 
-	for (Place &pl: places_avant) {
-		if (p.get_coord() == pl.get_coord()) pl	 = p;
+void Grille::rangePlace(Place p) { 
+	for (Place &pl: places) {
+		if (p.get_coord() == pl.get_coord()) pl = p;
 	}
-	places = places_avant;
 }
 
 /* Fonction équivalente à rangePlace pour un vecteur de places
  * @param vector<Place>
  */
-void Grille::rangeEnsPlace(vector<Place> places) {
-	for (Place p: places) {
+void Grille::rangeEnsPlace(vector<Place> plcs) {
+	for (Place p: plcs) {
 		rangePlace(p);
 	}
 }
