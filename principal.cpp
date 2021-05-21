@@ -123,6 +123,11 @@ void mettreAJourUneFourmi(Grille &grille, Fourmi &fourmi) {
     grille.rangeEnsPlace(vector<Place>{place_adjacente, place_occupe});
 }
 
+void mettreAJourEnsFourmis(Grille &grille, tabFourmi &tabFourmis) {
+    for (Fourmi &f: tabFourmis) {
+        mettreAJourUneFourmi(grille, f);
+    }
+}
 
 
 int main() {
