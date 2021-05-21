@@ -38,8 +38,7 @@ EnsCoord::EnsCoord(){}
 
 */
 int EnsCoord::position(const Coord c) {
-	vector<Coord> tab = get_coords();
-	for (int i=0; i < int(tab.size()); i++) {
+	for (int i=0; i < int(coords.size()); i++) {
 		if (tab[i] == c) return i;
 	}
 	return -1;
@@ -77,8 +76,7 @@ void EnsCoord::ajoute(const Coord c) {
 
 Coord EnsCoord::choixHasard() const {
 	int ind_aleat = rand() % taille();
-	vector<Coord> crds = get_coords();
-	return crds[ind_aleat];
+	return coords[ind_aleat];
 }
 
 // Surcharges pour la classe EnsCoord
