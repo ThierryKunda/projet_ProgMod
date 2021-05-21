@@ -82,6 +82,20 @@ void action_7(Fourmi &f, Place &p1, Place p2) {
     deplaceFourmi(f, p1, p2);
 }
 
+void action_n(int x, Fourmi &F, Place &P1, Place &P2) {
+    switch (x)
+    {
+    case 1: action_1(F, P1, P2); break;
+    case 2: action_2(F, P1, P2); break;
+    case 3: action_3(F, P1, P2); break;
+    case 4: action_4(F, P1, P2); break;
+    case 5: action_5(F, P1, P2); break;
+    case 6: action_6(F, P1, P2); break;
+    case 7: action_7(F, P1, P2); break;
+    default: break;
+    }
+}
+
 
 
 

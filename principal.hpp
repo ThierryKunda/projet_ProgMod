@@ -30,6 +30,7 @@ void action_4(Fourmi &f, Place &p1, Place &p2);
 void action_5(Fourmi &f, Place &p1, Place &p2);
 void action_6(Fourmi &f, Place &p1, Place &p2);
 void action_7(Fourmi &f, Place &p1, Place &p2);
+void action_n(int x, Fourmi &F, Place &P1, Place &P2);
 Coord voisinVideAleatoire(Grille g, Place p);
 
 #endif
