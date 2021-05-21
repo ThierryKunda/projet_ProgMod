@@ -56,29 +56,29 @@ void action_1(Fourmi &f, Place &p1, Place &p2) {
     p2.enleveFourmi();
 }
 
-void action_2(Fourmi &f, Place &p1, Place p2) {
+void action_2(Fourmi &f, Place &p1, Place &p2) {
     f.porteSucre();
     p1.posePheroSucre();
 }
 
-void action_3(Fourmi &f, Place &p1, Place p2) {
+void action_3(Fourmi &f, Place &p1, Place &p2) {
     p1.poseSucre();
 }
 
-void action_4(Fourmi &f, Place &p1, Place p2) {
+void action_4(Fourmi &f, Place &p1, Place &p2) {
     deplaceFourmi(f, p1, p2);
     p2.posePheroSucre();
 }
 
-void action_5(Fourmi &f, Place &p1, Place p2) {
+void action_5(Fourmi &f, Place &p1, Place &p2) {
     deplaceFourmi(f, p1, p2);
 }
 
-void action_6(Fourmi &f, Place &p1, Place p2) {
+void action_6(Fourmi &f, Place &p1, Place &p2) {
     deplaceFourmi(f, p1, p2);
 }
 
-void action_7(Fourmi &f, Place &p1, Place p2) {
+void action_7(Fourmi &f, Place &p1, Place &p2) {
     deplaceFourmi(f, p1, p2);
 }
 
