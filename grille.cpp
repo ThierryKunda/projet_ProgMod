@@ -182,7 +182,7 @@ void lineariserPheroNid(Grille &grille) {
 void dessineGrille(Grille grille) {
 	vector<Place> places = grille.get_places();
 	for (int i = 0; i < TAILLEGRILLE*TAILLEGRILLE; i++) {
-		if (i % TAILLEGRILLE == 0) cout << endl;
+		if (i % TAILLEGRILLE == 0 && i != 0) cout << endl;
 		if (places[i].contientFourmi()) {
 			cout << " F ";
 		} else if (places[i].contientSucre()) {
@@ -199,7 +199,7 @@ void dessineGrille(Grille grille) {
 void dessineGrille(Grille grille, string contenu) {
 	vector<Place> places = grille.get_places();
 	for (int i = 0; i < TAILLEGRILLE*TAILLEGRILLE; i++) {
-		if (i % TAILLEGRILLE == 0) cout << endl;
+		if (i % TAILLEGRILLE == 0 && i != 0) cout << endl;
 		if (contenu == "pheroSucre") {
 			cout << " " << places[i].get_pheroSucre() << " ";
 		} else if (contenu == "pheroNid") {
