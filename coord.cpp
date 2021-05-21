@@ -39,7 +39,7 @@ EnsCoord::EnsCoord(){}
 */
 int EnsCoord::position(const Coord c) {
 	for (int i=0; i < int(coords.size()); i++) {
-		if (tab[i] == c) return i;
+		if (coords[i] == c) return i;
 	}
 	return -1;
 }
