@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "doctest.h"
 #include "principal.hpp"
+#include "ecrfich.hpp"
 using namespace std;
 
 // Fonctions et méthodes de l'algorithme principale
@@ -155,12 +156,28 @@ int main() {
 
     /* Boucle principale */
 
-    system("clear"); // On efface le terminal avant d'afficher la grille
-    for (int i = 1; i <= 100; i++) {
-        mettreAJourEnsFourmis(simulation, fourmis_init);
-        dessineGrille(simulation);
-        retarder(1000); // 0.5 secondes entre chaque changement
-        system("clear"); // On rafraichit l'affichage
+    // Choix entre affichage textuel et graphique
+    string txt_ou_grph;
+    do {
+        cout << "Graphique ? y/n : ";
+        cin >> txt_ou_grph;
+    }
+    while(txt_ou_grph != "n" && txt_ou_grph != "y");
+
+    if (txt_ou_grph == "n"){
+        system("clear"); // On efface le terminal avant d'afficher la grille
+        for (int i = 1; i <= 100; i++) {
+            mettreAJourEnsFourmis(simulation, fourmis_init);
+            dessineGrille(simulation);
+            retarder(1000); // 0.5 secondes entre chaque changement
+            system("clear"); // On rafraichit l'affichage
+        }
+    } else {
+        for (int i = 1; i <= 100; i++) {
+            mettreAJourEnsFourmis(simulation, fourmis_init);
+            creerFrame("simul_fourmis", simulation);
+        }
+        system("convert -scale 300 -delay 10 simul_fourmis*.ppm nom_animation.gif");
     }
     return 0;
 }
