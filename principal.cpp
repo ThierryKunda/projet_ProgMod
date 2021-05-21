@@ -177,7 +177,7 @@ int main() {
             mettreAJourEnsFourmis(simulation, fourmis_init);
             creerFrame("simul_fourmis", simulation);
         }
-        system("convert -scale 300 -delay 10 simul_fourmis*.ppm nom_animation.gif");
+        creationAnimation("500", "8", "simul");
     }
     return 0;
 }

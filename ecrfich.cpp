@@ -86,3 +86,16 @@ void creerFrame(string nom_animation, Grille grille){
   // fermeture du fichier
   fic.close();
 }
+
+/* Crée une animation à partir d'image.ppm possédant le même préfixe */
+void creationAnimation(string echelle_image, string retard, string nom_animation) {
+  string ensFichiers = nom_animation + "*.ppm";
+  string commande_chaine = "convert -scale "+echelle_image+" -delay "+retard+" "+ensFichiers+" "+nom_animation+".gif";
+  const char *commande = commande_chaine.c_str();
+  system(commande);
+  // On supprime les frames utilisées pour la conversion
+  string nettoyer = "rm -f " + ensFichiers;
+  const char* commande2 = nettoyer.c_str();
+  system(commande2);
+  cout << "Fin de conversion" << endl;
+}
