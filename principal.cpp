@@ -5,19 +5,6 @@ using namespace std;
 
 // Fonctions et méthodes de l'algorithme principale
 
-void mettreAJourUneFourmi(Grille &grille, Fourmi &fourmi) {
-    // On récupère la place occupée
-    vector<Place> plcs = grille.get_places();
-    Place place_occupe = grille.chargePlace(fourmi.get_coords());
-    Place place_adjacente = grille.chargePlace(grille.CoordsPlacesVoisines(place_occupe).choixHasard());
-    for (int num = 1; num <= 7; num++) {
-        if (condition_n(num, fourmi, place_occupe, place_adjacente)) {
-            action_n(num, fourmi, place_occupe, place_adjacente);
-        }
-    }
-    grille.rangeEnsPlace(vector<Place>{place_adjacente, place_occupe});
-}
-
 bool condition_1(Fourmi f, Place p1, Place p2) {
     // On initialise à partir des attributs de f
     Fourmi fourmi_adj = {p1.get_coord(), f.get_num(), f.get_colonie()};
@@ -122,6 +109,19 @@ void action_n(int x, Fourmi &F, Place &P1, Place &P2) {
     }
 }
 
+
+void mettreAJourUneFourmi(Grille &grille, Fourmi &fourmi) {
+    // On récupère la place occupée
+    vector<Place> plcs = grille.get_places();
+    Place place_occupe = grille.chargePlace(fourmi.get_coords());
+    Place place_adjacente = grille.chargePlace(grille.CoordsPlacesVoisines(place_occupe).choixHasard());
+    for (int num = 1; num <= 7; num++) {
+        if (condition_n(num, fourmi, place_occupe, place_adjacente)) {
+            action_n(num, fourmi, place_occupe, place_adjacente);
+        }
+    }
+    grille.rangeEnsPlace(vector<Place>{place_adjacente, place_occupe});
+}
 
 
 
